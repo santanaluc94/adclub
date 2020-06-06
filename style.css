@@ -8,3 +8,150 @@ Tags: Clube, clube, Associação, associação, esportes, esporte, times, time, 
 Version: 1.0
 Text Domain: A.D. Clube
 */
+:root{
+    --main-color: #c70039;
+    --second-color: #FFC300;
+    --third-color: white;
+}
+
+body {
+    margin: 0 auto;
+}
+
+/* Menu superior */
+div.menu-barra-superior {
+    height: 75px;
+    background-color: var(--main-color);
+    display: flex;
+    border-bottom: 3px solid var(--second-color);
+    position: absolute;
+    width: 100%;
+}
+
+a.logo {
+    background-color: var(--second-color);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 7.5%;
+    margin-top: 12.5px;
+    position: relative;
+}
+
+img.logo-menu {
+    height: 75% !important;
+    width: 75% !important;
+    position: relative;
+    left: 12.5%;
+    top: 12.5%;
+    z-index: 100;
+}
+
+div.titulo {
+    position: relative;
+    color: var(--third-color);
+    font-weight: 400;
+    margin-top: 20px;
+    margin-left: 1%;
+    text-transform: uppercase;
+    line-height: 10px;
+}
+
+h2.titulo {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+h3.titulo {
+    margin-bottom: 0;
+    font-size: 17px;
+    line-height: 18px;
+}
+
+ul.midias-sociais-superior {
+    margin-top: 1.5%;
+    position: absolute;
+    right: 2.5%;
+    display: inline-block;
+    list-style-type: none;
+    padding: 0px;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+}
+
+a.fa-superior {
+    color: var(--third-color);
+    margin-left: 20px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+a.fa-superior:hover {
+    color: var(--second-color);
+    text-decoration: none;
+}
+
+/* Menu Inferior */
+.menu-barra-inferior {
+    height: 50px;
+    background-color: var(--second-color);
+    display: flex;
+    border-bottom: 3px solid var(--main-color);
+    top: 75px;
+    position: relative;
+}
+
+.barra_navegacao ul {
+    color: white;
+    width: 75%;
+    margin: 0 auto;
+    left: 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    font-weight: 600;
+    font-family: 'Ebrima', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-left: 15%;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    z-index: 1;
+    position: absolute;
+    margin-top: 5px;
+    width: 75%;
+}
+
+.page_item {
+    text-decoration: none;
+    list-style-type: none;
+    height: 100%;
+    width: 150px;
+    padding-top: 2%;
+    text-align: center;
+}
+
+li.page_item:hover {
+    transition: 0.5s;
+    color: var(--main-color);
+    /* border-bottom: 4px solid var(--main-color); */
+    text-shadow: none;
+}
+
+.menu a {
+    color: inherit;
+    text-decoration: none;
+
+}
+
+.menu a:hover {
+    text-decoration: none;
+}
+
+#btn_menu,
+.btn_menu {
+    display: none;
+}
