@@ -14,7 +14,7 @@
         <?php if (!empty(get_bloginfo('name'))) : ?>
             <?= get_bloginfo('name') ?>
         <?php else : ?>
-            Página Inicial
+            <?= __('Página Inicial', 'header') ?>
         <?php endif; ?>
     </title>
 </head>
@@ -27,13 +27,19 @@
                 <a href="<?= get_home_url() ?>">
                     <?php if (function_exists('the_custom_logo')) : ?>
                         <?php the_custom_logo() ?>
+                    <?php else : ?>
+                        <img src="<?= get_home_url() . '/img/adc-logo.png' ?>" />
                     <?php endif; ?>
                 </a>
 
                 <div class="titulo">
                     <!-- Nome do Clube -->
                     <h2 class="titulo_nome">
-                        <?= get_bloginfo('name') ?>
+                        <?php if (get_bloginfo('name') === null) : ?>
+                            <?= get_bloginfo('name') ?>
+                        <?php else : ?>
+                            Associação Desportiva Clube
+                        <?php endif; ?>
                     </h2>
                     <h3 class="titulo_site">Site Oficial</h3>
                 </div>
