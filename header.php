@@ -67,8 +67,10 @@
             </div>
 
             <div class="menu-barra-inferior">
-                <div class="barra_navegacao botoes">
-                    <!-- Sobre o Clube, Elenco, Jogos, Extras, Seja sócio -->
+                <input type="checkbox" id="btn_menu" checked>
+                <label class="btn_menu" for="btn_menu">&#9776;</label>
+
+                <div class="barra_navegacao">
                     <?php wp_nav_menu(['theme_location' => 'header_menu']); ?>
                 </div>
             </div>
