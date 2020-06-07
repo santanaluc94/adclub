@@ -1,39 +1,28 @@
 <section class="secao-patrocinadores container">
     <div class="row titulo-site">
-
-        <?php query_posts(array('post_type' => array('patrocinadores'))); ?>
-        <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : the_post();
-                $qtd++; ?>
-        <?php endwhile;
-        endif; ?>
-
-        <?php if ($qtd == 1) : ?>
-            <h1>
-                <span class="titulo-pagina">Patrocinador</span>
-            </h1>
-        <?php elseif ($qtd >= 2) : ?>
-            <h1>
-                <span class="titulo-pagina">Patrocinadores</span>
-            </h1>
-        <?php else : ?>
-            <h1>
-                <span class="titulo-pagina">Sem Patrocinadores</span>
-            </h1>
-        <?php endif; ?>
+        <h1>
+            <span class="titulo-pagina">Patrocinadores</span>
+        </h1>
     </div>
-
     <div class="row patrocinadores">
-        <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : ?>
-                <?php the_post(); ?>
-                <a href="<?php the_field('site_do_patrocinador'); ?>" target="_blank" class="link-marcas">
-                    <img class="img-patrocinador" src="<?php the_field('imagem_do_patrocinador'); ?>" />
-                </a>
-            <?php endwhile; ?>
-        <?php else : ?>
-            <h5>Estamos sem patrocinadores no momento.</h5>
-        <?php endif; ?>
+        <a class="link-marcas" target="_blank">
+            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/codeigniter-logo.png" />
+        </a>
+        <a class="link-marcas" target="_blank">
+            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/drupal-logo.png" />
+        </a>
+        <a class="link-marcas" target="_blank">
+            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/laravel-logo.png" />
+        </a>
+        <a class="link-marcas" target="_blank">
+            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/magento-logo.png" />
+        </a>
+        <a class="link-marcas" target="_blank">
+            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/wordpress-logo.png" />
+        </a>
+        <a class="link-marcas" target="_blank">
+            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/symfony-logo.png" />
+        </a>
     </div>
 </section>
 
@@ -41,20 +30,19 @@
     <div class="container">
         <div class="row footer-superior">
             <div class=" col-sm-4 col-md col-sm-4 col-12 col">
-                <h4 class="titulo-footer">Sobre o A.D. Guarulhos</h4>
+                <h4 class="titulo-footer">Sobre o A.D. Clube</h4>
                 <div class="texto-footer">
                     <p class="mb-2">
-                        A Associação Desportiva Guarulhos é um clube brasileiro de futebol da cidade de
-                        Guarulhos,
-                        região metropolitana do estado de São Paulo. Fundado em 1º de fevereiro de 1964.
+                        O A.D. Clube é um template para Wordpress que visa disponibilizar uma opção gratuita para clubes
+                        que possuem baixo orçamento para investir em um site.
                     </p>
                 </div>
-                <!-- Text about company -->
+                <!-- Text about club -->
             </div>
-            <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+            <div class="col-sm-4 col-md col-sm-4 col-12 col">
                 <h4 class="titulo-footer">Inscreva-se</h4>
                 <div class="mb-3 texto-footer">
-                    <p>Para receber todas as notícias, atualizações e promoções do A.D. Guarulhos cadastre seu
+                    <p>Para receber todas as notícias, atualizações e promoções do <?= get_bloginfo('name') ?: 'clube' ?> cadastre seu
                         e-mail no campo abaixo.</p>
                     <div class="input-group-append">
                         <input type="email" class="form-control" placeholder="exemplo@email.com">
@@ -65,10 +53,10 @@
                 </div>
                 <!-- Newsletter -->
             </div>
-            <div class="col-sm-4 col-md col-sm-4  col-12 col">
+            <div class="col-sm-4 col-md col-sm-4 col-12 col">
                 <h4 class="titulo-footer">Entre em Contato:</h4>
                 <div class="mb-2 texto-footer">
-                    <p><span>E-mail:</span> comunicacaoadguarulhos@gmail.com</p>
+                    <p><span>E-mail: </span>santanaluc94@gmail.com</p>
                 </div>
                 <!-- Contact -->
             </div>
@@ -96,7 +84,7 @@
 
         <div class="row copyright">
             <p>
-                Copyright @2019 | Desenvolvido por <a href="https://www.linkedin.com/in/lucastssantana" target="_blank">Lucas Santana</a>
+                Copyright @2020 | Desenvolvido por <a href="https://www.linkedin.com/in/lucastssantana" target="_blank">Lucas Santana</a>.
             </p>
         </div>
     </div>
