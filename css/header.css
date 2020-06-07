@@ -110,8 +110,8 @@ li.page_item {
     list-style-type: none;
     height: 100%;
     width: 150px;
-    padding-top: 2%;
     text-align: center;
+    padding-top: 7.5px;
 }
 
 li.page_item:hover {
@@ -123,11 +123,12 @@ li.page_item:hover {
 .menu a {
     color: inherit;
     text-decoration: none;
-
 }
 
 .menu a:hover {
     text-decoration: none;
+    list-style-type: none;
+    color: var(--main-color);
 }
 
 #btn_menu,
@@ -181,11 +182,10 @@ li.page_item:hover {
     /* início mídias sociais */
     ul.midias-sociais-superior {
         margin-top: 115px;
-        width: 100%;
-        left: 10%;
+        width: 80%;
+        right: 0;
         list-style-type: none;
         padding: 0;
-        display: inline-block;
         display: flex;
         justify-content: center;
     }
@@ -193,7 +193,7 @@ li.page_item:hover {
     a.fa-superior {
         float: left;
         color: var(--third-color);
-        font-size: 22px;
+        font-size: 18px;
     }
 
     ul.midias-sociais-inferior {
@@ -253,9 +253,9 @@ li.page_item:hover {
     .menu a {
         color: var(--third-color);
         position: relative;
-        top: 15%;
         text-shadow: none;
         letter-spacing: 2px;
+        font-size: 16px;
     }
 
     .menu:hover a {
@@ -285,7 +285,6 @@ li.page_item:hover {
         margin: 0px auto;
         width: 100%;
         height: 40px;
-        padding-top: 10px;
         position: absolute;
         z-index: 10;
     }
