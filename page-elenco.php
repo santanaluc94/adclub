@@ -1,7 +1,7 @@
 <?php
 
 /**
- * template name: elenco
+ * template name: atletas
  */
 
 get_header();
@@ -16,7 +16,7 @@ get_header();
             </div>
             <div class="card-deck">
                 <?php query_posts(array(
-                    'post_type' => array('elenco',),
+                    'post_type' => array('atletas'),
                     'posts_per_page' => -1,
                     'orderby' => 'posicao',
                     'order' => 'asc'
@@ -26,7 +26,7 @@ get_header();
                         <div class="col-md-4">
                             <div class="card d-flex">
                                 <div class="image mx-5 my-2" style="height:200px; width:150px;">
-                                    <img class="card-img-top text-center" style="height:200px; width:160px;" src="<?php the_field('foto_do_atleta'); ?>">
+                                    <?php the_post_thumbnail('thumbnail', ['class' => 'card-img-top text-center']) ?>
                                 </div>
                                 <div class="card-footer">
                                     <h5 class="card-title"><?php the_field('nome'); ?></h5>
@@ -34,7 +34,7 @@ get_header();
                                         <span>Nome:</span> <?php the_field('nome_completo'); ?>
                                     </p>
                                     <p class="card-text">
-                                        <span>Peso:</span> <?php the_field('peso'); ?>kg<span> Altura:</span> <?php the_field('altura'); ?>m
+                                        <span>Peso:</span> <?php the_field('peso'); ?>kg<span> Altura:</span> <?php the_field('altura'); ?>cm
                                     </p>
                                     <p class="card-text">
                                         <span>Nascimento:</span> <?php the_field('data_de_nascimento'); ?>

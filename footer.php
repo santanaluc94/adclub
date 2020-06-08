@@ -1,28 +1,38 @@
 <section class="secao-patrocinadores container">
     <div class="row titulo-site">
-        <h1>
-            <span class="titulo-pagina">Patrocinadores</span>
-        </h1>
+        <?php query_posts(['post_type' => ['patrocinadores']]); ?>
+        <?php if (have_posts()) : ?>
+            <?php while (have_posts()) : the_post();
+                $qtd++; ?>
+        <?php endwhile;
+        endif; ?>
+
+        <?php if ($qtd == 1) : ?>
+            <h1>
+                <span class="titulo-pagina">Patrocinador</span>
+            </h1>
+        <?php elseif ($qtd >= 2) : ?>
+            <h1>
+                <span class="titulo-pagina">Patrocinadores</span>
+            </h1>
+        <?php else : ?>
+            <h1>
+                <span class="titulo-pagina">Sem Patrocinadores</span>
+            </h1>
+        <?php endif; ?>
     </div>
+
     <div class="row patrocinadores">
-        <a class="link-marcas" target="_blank">
-            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/codeigniter-logo.png" />
-        </a>
-        <a class="link-marcas" target="_blank">
-            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/drupal-logo.png" />
-        </a>
-        <a class="link-marcas" target="_blank">
-            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/laravel-logo.png" />
-        </a>
-        <a class="link-marcas" target="_blank">
-            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/magento-logo.png" />
-        </a>
-        <a class="link-marcas" target="_blank">
-            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/wordpress-logo.png" />
-        </a>
-        <a class="link-marcas" target="_blank">
-            <img class="img-patrocinador" src="<?php bloginfo("template_directory"); ?>/img/symfony-logo.png" />
-        </a>
+        <?php if (have_posts()) : ?>
+            <?php while (have_posts()) : ?>
+                <?php the_post(); ?>
+                <a href="<?php the_field('site'); ?>" target="_blank" class="link-marcas">
+                    <?php the_post_thumbnail('thumbnail', ['class' => 'img-patrocinador']) ?>
+                </a>
+            <?php endwhile; ?>
+        <?php else : ?>
+            <h5>Estamos sem patrocinadores no momento.</h5>
+        <?php endif; ?>
     </div>
 </section>
 
