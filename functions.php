@@ -17,6 +17,9 @@ add_filter('get_custom_logo', 'change_logo_class');
 
 /**
  * Change logo class
+ *
+ * @param string $html
+ * @return void
  */
 function change_logo_class($html)
 {
@@ -49,7 +52,6 @@ function create_post_type()
             'has_archive' => false,
             'rewrite' => ['slug' => 'atleta'],
             'supports' => [
-                'editor',
                 'thumbnail'
             ]
         ]
@@ -117,11 +119,16 @@ add_action('add_meta_boxes', 'register_custom_posts');
 
 /**
  * Create form to Atletas in custom post
+ *
+ * @param object $post
+ * @return void
  */
 function form_atleta($post)
 {
     $atleta = get_post_meta($post->ID);
 ?>
+
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/form_atleta.css">
 
     <form method="post">
         <h1>Form atleta</h1>
@@ -177,6 +184,9 @@ function form_atleta($post)
 
 /**
  * Create form to Atletas in custom post
+ *
+ * @param object $post
+ * @return void
  */
 function form_patrocinador($post)
 {
@@ -198,11 +208,17 @@ function form_patrocinador($post)
 
 /**
  * Save custom post Atletas in SQL
+ *
+ * @param int $post_id
+ * @return void
  */
 function save_atletas($post_id)
 {
     if (isset($_POST['nome'])) {
         update_post_meta($post_id, 'nome', sanitize_text_field($_POST['nome']));
+
+        global $wpdb;
+        $wpdb->update($wpdb->posts, array('post_title' => sanitize_text_field($_POST['nome'])), array('ID' => $post_id));
     }
 
     if (isset($_POST['nome_completo'])) {
@@ -234,6 +250,9 @@ add_action('save_post', 'save_atletas');
 
 /**
  * Save custom post Patrocinador in SQL
+ *
+ * @param int $post_id
+ * @return void
  */
 function save_patrocinador($post_id)
 {
@@ -246,3 +265,33 @@ function save_patrocinador($post_id)
  * Call function to save cutom post Patrocinador in SQL
  */
 add_action('save_post', 'save_patrocinador');
+
+
+/**
+ * Insert categories programmatically
+ *
+ * @return void
+ */
+function insert_categories()
+{
+    wp_insert_term(
+        'Matéria',
+        'category',
+        [
+            'slug' => 'materia'
+        ]
+    );
+
+    wp_insert_term(
+        'Destaques',
+        'category',
+        [
+            'slug' => 'destaques'
+        ]
+    );
+}
+
+/**
+ * Call function to insert categories
+ */
+add_action('after_setup_theme', 'insert_categories');

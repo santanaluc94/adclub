@@ -17,3 +17,16 @@ Text Domain: A.D. Clube
 body {
     margin: 0 auto;
 }
+
+/* início titulos da página */
+div.titulo-site {
+    /* text-align: justify; */
+    color: var(--main-color);
+    border-bottom: 3px solid var(--second-color);
+    margin: 20px auto;
+}
+
+span.titulo-pagina {
+    text-transform: uppercase;
+    font-size: 24px;
+}
