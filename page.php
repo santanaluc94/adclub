@@ -1,8 +1,16 @@
-<?php get_header(); ?>
+<?php
+
+/**
+ * template name: page
+ */
+
+get_header();
+?>
 
 <div class="container d-flex">
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <div class="conteudo-flex">
+    <?php if (have_posts()) : ?>
+        <?php while (have_posts()) : the_post(); ?>
+            <div class="conteudo-flex col-md-12">
                 <section class="secao">
                     <div class="row titulo-site">
                         <h1>
@@ -12,7 +20,7 @@
                     <article class="texto">
                         <?php if (has_post_thumbnail()) : ?>
                             <div class="imagem-superior img-responsive">
-                                <?php the_post_thumbnail('post_thumbnail', array('class' => 'imagem-superior img-responsive')); ?>
+                                <?php the_post_thumbnail('post_thumbnail', ['class' => 'imagem-superior img-responsive']); ?>
                             </div>
                         <?php endif; ?>
                         <p class="texto-pagina">
@@ -27,16 +35,14 @@
                 <?php edit_post_link('(Editar)'); ?></p>
             </div>
 
-        <?php endwhile;
-    else : ?>
+        <?php endwhile; ?>
+    <?php else : ?>
         <div class="artigo">
             <h2>Nada Encontrado</h2>
             <p>Erro 404</p>
             <p>Lamentamos mas não foram encontrados artigos.</p>
         </div>
     <?php endif; ?>
-    <?php get_sidebar(); ?>
-
 </div>
 
 <?php get_footer(); ?>

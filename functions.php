@@ -295,3 +295,99 @@ function insert_categories()
  * Call function to insert categories
  */
 add_action('after_setup_theme', 'insert_categories');
+
+
+/**
+ * Create static Pages
+ *
+ * @return void
+ */
+function create_static_pages()
+{
+    $html_sobre = '<p class="texto-pagina">Conteúdo sobre o Clube.</p>';
+
+    $html_extras = '
+    <article class="texto">
+        <article class="sub-texto">
+            <p class="texto-pagina">
+                Texto extra sobre o clube.
+            </p>
+        </article>
+        <article class="sub-texto">
+            <div class="row titulo-site">
+                <h1>
+                    <span class="titulo-pagina">Torcida do Clube</span>
+                </h1>
+            </div>
+            <p class="texto-pagina">
+                Texto sobre a torcida do clube.
+            </p>
+        </article>
+
+        <article class="sub-texto">
+            <div class="row titulo-site">
+                <h1>
+                    <span class="titulo-pagina">Hino do Clube</span>
+                </h1>
+            </div>
+            <p class="hino">
+                Primeira linha do hino do Clube<br />
+                Segunda linha do hino do Clube<br />
+                Terceira linha do hino do Clube<br />
+                Quarta linha do hino do Clube<br />
+            </p>
+        </article>
+    </article>';
+
+
+    if (get_option('function_execute_once_01') !== 'completed') {
+        $page_sobre = [
+            'post_title' => 'Sobre o Clube',
+            'post_content' => $html_sobre,
+            'post_status' => 'publish',
+            'post_author' => 1,
+            'post_type' => 'page'
+        ];
+
+        $page_elenco = [
+            'post_title' => 'Atletas',
+            'post_content' => '',
+            'post_status' => 'publish',
+            'post_author' => 1,
+            'post_type' => 'page'
+        ];
+
+        $page_campeonatos = [
+            'post_title' => 'Campeonatos',
+            'post_content' => '',
+            'post_status' => 'publish',
+            'post_author' => 1,
+            'post_type' => 'page'
+        ];
+
+        $page_extra = [
+            'post_title' => 'Extras',
+            'post_content' => $html_extras,
+            'post_status' => 'publish',
+            'post_author' => 1,
+            'post_type' => 'page'
+        ];
+
+        wp_insert_post($page_sobre);
+        wp_insert_post($page_elenco);
+        wp_insert_post($page_campeonatos);
+        wp_insert_post($page_extra);
+    }
+
+    update_option('function_execute_once_01', 'completed');
+
+    /**
+     * Run create_static_pages only once
+     */
+    add_action('admin_init', 'function_execute_once');
+}
+
+/**
+ * Call function to create static page
+ */
+add_action('admin_init', 'create_static_pages');

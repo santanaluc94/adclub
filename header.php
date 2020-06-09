@@ -9,10 +9,9 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/reset.css">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/header.css">
-
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/index.css">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/style.css">
 
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/index.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
