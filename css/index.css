@@ -1,0 +1,144 @@
+section.inicio-secao {
+    margin: 125px auto 0 auto;
+}
+
+/* início estilo carrossel */
+div#carousel-slide {
+    z-index: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.carousel-img {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-item {
+    height: 100%;
+    height: 450px;
+    width: 100%;
+}
+
+a.carrossel-botao {
+    box-shadow: 0px;
+}
+
+a.carrossel-botao:hover {
+    box-shadow: 0px;
+}
+
+.carrosel {
+    width: 100%
+}
+
+a.link-carrossel {
+    color: #cccccc;
+}
+
+a.link-carrossel:hover {
+    color: var(--third-color);
+    text-decoration: none;
+}
+
+a.link-carrossel:visited {
+    color: var(--third-color);
+}
+
+.noticia_carrosel {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* início das notícias */
+div.bloco-inferior {
+    margin: 0px auto;
+}
+
+div.noticias {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.noticia {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+img.img-noticias {
+    height: 225px;
+    width: 325px;
+}
+
+div.chamada-noticia {
+    margin-top: 2%;
+    padding: 1%;
+    width: 88%;
+    text-align: justify;
+}
+
+a.texto-noticia {
+    font-size: 16px;
+    color: var(--main-color);
+    font-weight: 500;
+    display: block;
+}
+
+a.texto-noticia:hover {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+@media only screen and (max-width: 768px) {
+
+    body {
+        width: 100%;
+    }
+
+    /* início carrossel */
+    section.inicio-secao {
+        margin: 200px auto 0px auto;
+    }
+
+    .carousel {
+        z-index: 0;
+    }
+
+    .carousel-item,
+    .active {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* início notícias */
+    div.noticia {
+        margin: 0 auto;
+        display: flex;
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    img.img-noticias {
+        height: 100%;
+        width: 100%;
+    }
+
+    a.texto-noticia {
+        font-size: 14px;
+        font-weight: 700;
+        text-align: justify;
+        margin-bottom: 5%;
+    }
+
+    div.chamada-noticia {
+        width: 100%;
+        border-bottom: 2px solid var(--second-color);
+    }
+
+    .noticia_carrosel h3 {
+        font-size: 14px;
+    }
+}
