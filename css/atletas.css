@@ -1,0 +1,44 @@
+/* início dos cards */
+div.card {
+    margin: 10px auto;
+    border: 1.5px solid var(--second-color);
+    color: var(--main-color);
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.50);
+}
+
+img.card-img-top {
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+}
+
+h5.card-title {
+    font-size: 20px;
+}
+
+p.card-text {
+    margin: 0px;
+    font-size: 14px;
+}
+
+.card span {
+    font-weight: bold;
+}
+
+p.card-text-footer {
+    font-size: 20px;
+    margin: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    div.card {
+        width: 90%;
+        margin-bottom: 50px !important;
+        ;
+    }
+
+    div.image {
+        height: 225px;
+    }
+}

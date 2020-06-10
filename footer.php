@@ -1,40 +1,42 @@
-<section class="secao-patrocinadores container">
-    <div class="row titulo-site">
-        <?php query_posts(['post_type' => ['patrocinadores']]); ?>
-        <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : the_post();
-                $qtd++; ?>
-        <?php endwhile;
-        endif; ?>
+<div class="container d-flex">
+    <section class="secao-patrocinadores container">
+        <div class="row titulo-site">
+            <?php query_posts(['post_type' => ['patrocinadores']]); ?>
+            <?php if (have_posts()) : ?>
+                <?php while (have_posts()) : the_post();
+                    $qtd++; ?>
+            <?php endwhile;
+            endif; ?>
 
-        <?php if ($qtd == 1) : ?>
-            <h1>
-                <span class="titulo-pagina">Patrocinador</span>
-            </h1>
-        <?php elseif ($qtd >= 2) : ?>
-            <h1>
-                <span class="titulo-pagina">Patrocinadores</span>
-            </h1>
-        <?php else : ?>
-            <h1>
-                <span class="titulo-pagina">Sem Patrocinadores</span>
-            </h1>
-        <?php endif; ?>
-    </div>
+            <?php if ($qtd == 1) : ?>
+                <h1>
+                    <span class="titulo-pagina">Patrocinador</span>
+                </h1>
+            <?php elseif ($qtd >= 2) : ?>
+                <h1>
+                    <span class="titulo-pagina">Patrocinadores</span>
+                </h1>
+            <?php else : ?>
+                <h1>
+                    <span class="titulo-pagina">Sem Patrocinadores</span>
+                </h1>
+            <?php endif; ?>
+        </div>
 
-    <div class="row patrocinadores">
-        <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : ?>
-                <?php the_post(); ?>
-                <a href="<?php the_field('site'); ?>" target="_blank" class="link-marcas">
-                    <?php the_post_thumbnail('thumbnail', ['class' => 'img-patrocinador']) ?>
-                </a>
-            <?php endwhile; ?>
-        <?php else : ?>
-            <h5>Estamos sem patrocinadores no momento.</h5>
-        <?php endif; ?>
-    </div>
-</section>
+        <div class="row patrocinadores">
+            <?php if (have_posts()) : ?>
+                <?php while (have_posts()) : ?>
+                    <?php the_post(); ?>
+                    <a href="<?php the_field('site'); ?>" target="_blank" class="link-marcas">
+                        <?php the_post_thumbnail('thumbnail', ['class' => 'img-patrocinador']) ?>
+                    </a>
+                <?php endwhile; ?>
+            <?php else : ?>
+                <h5>Estamos sem patrocinadores no momento.</h5>
+            <?php endif; ?>
+        </div>
+    </section>
+</div>
 
 <footer>
     <div class="container">

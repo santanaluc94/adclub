@@ -7,7 +7,7 @@
 get_header();
 ?>
 
-<div class="container d-flex">
+<div class="container container-top d-flex">
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
             <div class="conteudo-flex col-md-12">
@@ -27,12 +27,9 @@ get_header();
                             <?php the_content(); ?>
                         </p>
                     </article>
-                    <p>Postado por <?php the_author() ?> em <?php the_time('d/M/Y') ?> -
-                </section>
-                <?php comments_template(); ?>
+                    <?php comments_template(); ?>
 
-                <?php comments_popup_link('Sem Comentários', '1 Comentário', '% Comentários', 'comments-link', ''); ?>
-                <?php edit_post_link('(Editar)'); ?></p>
+                    <?php comments_popup_link('Sem Comentários', '1 Comentário', '% Comentários', 'comments-link', ''); ?>
             </div>
 
         <?php endwhile; ?>
