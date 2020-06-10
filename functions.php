@@ -306,13 +306,10 @@ function create_static_pages()
 {
     $html_sobre = '
         <article class="sub-texto">
-            <div class="row titulo-site">
-                <p class="texto-pagina">Conteúdo sobre o Clube.</p>
-            </div>
+            <p class="texto-pagina">Conteúdo sobre o Clube.</p>
         </article>';
 
     $html_extras = '
-    <article class="texto">
         <article class="sub-texto">
             <p class="texto-pagina">
                 Texto extra sobre o clube.
@@ -328,7 +325,6 @@ function create_static_pages()
                 Texto sobre a torcida do clube.
             </p>
         </article>
-
         <article class="sub-texto">
             <div class="row titulo-site">
                 <h1>
@@ -341,8 +337,7 @@ function create_static_pages()
                 Terceira linha do hino do Clube<br />
                 Quarta linha do hino do Clube<br />
             </p>
-        </article>
-    </article>';
+        </article>';
 
 
     if (get_option('function_execute_once_01') !== 'completed') {
