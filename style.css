@@ -30,8 +30,8 @@ span.titulo-pagina {
     font-size: 24px;
 }
 
-div.container {
-    margin-top: 50px
+div.container-top {
+    margin-top: 50px;
 }
 
 article.texto {
@@ -55,7 +55,7 @@ p.texto-pagina {
 
 @media only screen and (max-width: 768px) {
 
-    div.container {
-        margin-top: 150px
+    div.container-top {
+        margin-top: 150px;
     }
 }

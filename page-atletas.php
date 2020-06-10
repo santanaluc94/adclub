@@ -6,8 +6,8 @@
 
 get_header();
 ?>
-<div class="container d-flex">
-    <div class="conteudo-flex col-md-9 col-sm-12">
+<div class="container container-top d-flex">
+    <div class="conteudo-flex col-md-12">
         <section class="secao">
             <div class="row titulo-site">
                 <h1>
@@ -23,9 +23,9 @@ get_header();
                 ));
                 ?>
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="card d-flex">
-                                <div class="image mx-5 my-2" style="height:200px; width:150px;">
+                                <div class="image">
                                     <?php the_post_thumbnail('thumbnail', ['class' => 'card-img-top text-center']) ?>
                                 </div>
                                 <div class="card-footer">
@@ -34,7 +34,10 @@ get_header();
                                         <span>Nome:</span> <?php the_field('nome_completo'); ?>
                                     </p>
                                     <p class="card-text">
-                                        <span>Peso:</span> <?php the_field('peso'); ?>kg<span> Altura:</span> <?php the_field('altura'); ?>cm
+                                        <span>Peso:</span> <?php the_field('peso'); ?>kg
+                                    </p>
+                                    <p class="card-text">
+                                        <span> Altura:</span> <?php the_field('altura'); ?>cm
                                     </p>
                                     <p class="card-text">
                                         <span>Nascimento:</span> <?php the_field('data_de_nascimento'); ?>
@@ -53,6 +56,5 @@ get_header();
             </div>
         </section>
     </div>
-    <?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

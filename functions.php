@@ -304,7 +304,12 @@ add_action('after_setup_theme', 'insert_categories');
  */
 function create_static_pages()
 {
-    $html_sobre = '<p class="texto-pagina">Conteúdo sobre o Clube.</p>';
+    $html_sobre = '
+        <article class="sub-texto">
+            <div class="row titulo-site">
+                <p class="texto-pagina">Conteúdo sobre o Clube.</p>
+            </div>
+        </article>';
 
     $html_extras = '
     <article class="texto">
