@@ -1,5 +1,5 @@
-<div class="container d-flex">
-    <section class="secao-patrocinadores container">
+<div class="container">
+    <section class="secao-patrocinadores">
         <div class="row titulo-site">
             <?php query_posts(['post_type' => ['patrocinadores']]); ?>
             <?php if (have_posts()) : ?>
@@ -32,7 +32,11 @@
                     </a>
                 <?php endwhile; ?>
             <?php else : ?>
-                <h5>Estamos sem patrocinadores no momento.</h5>
+                <div class="col-md-12 row">
+                    <article class="texto">
+                        <p class="texto-pagina">Estamos sem patrocinadores no momento.</p>
+                    </article>
+                </div>
             <?php endif; ?>
         </div>
     </section>
