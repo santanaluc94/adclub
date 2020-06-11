@@ -106,7 +106,31 @@ function create_post_type()
                 'editor',
                 'thumbnail'
             ],
-            'menu_icon' => 'dashicons-awards'
+            'menu_icon' => 'dashicons-networking'
+        ]
+    );
+
+    // Function to create post Partidas
+    register_post_type(
+        'partidas',
+        [
+            'labels' => [
+                'name' => __('Partidas'),
+                'singular_name' => __('Partida'),
+                'add_new' => __('Adicionar Partida'),
+                'add_new_item' => __('Adicionar Partida'),
+                'edit_item' => __('Editar Partida'),
+                'all_items' => __('Todos os Partidas'),
+                'view_item' => __('Visualizar Partida'),
+                'search_item' => __('Buscar Partida'),
+            ],
+            'public' => true,
+            'has_archive' => false,
+            'rewrite' => ['slug' => 'partidas'],
+            'supports' => [
+                'thumbnail'
+            ],
+            'menu_icon' => 'dashicons-tickets-alt'
         ]
     );
 }
@@ -148,6 +172,16 @@ function register_custom_posts()
         'form_campeonato',
         'campeonatos',
         'side',
+        'high'
+    );
+
+    // Partidas
+    add_meta_box(
+        'info-partidas',
+        'Informações da Partida',
+        'form_partida',
+        'partidas',
+        'normal',
         'high'
     );
 }
@@ -261,7 +295,69 @@ function form_campeonato($post)
         </fieldset>
     </form>
 <?php
+}
 
+/**
+ * Create form to Partidas in custom post
+ *
+ * @param object $post
+ * @return void
+ */
+function form_partida($post)
+{
+    $partida = get_post_meta($post->ID);
+?>
+    <form method="post">
+        <fieldset>
+            <input class="rad-mandante" type="radio" name="mandante_visitante" id="rad-mandante" value="mandante" />
+            <label for="mandante">
+                <span>Mandante:</span>
+            </label>
+            <input class="rad-visitante" type="radio" name="mandante_visitante" id="rad-visitante" value="visitante" />
+            <label for="visitante">
+                <span>Visitante:</span>
+            </label>
+            </div>
+            <div>
+                <label for="mandante">
+                    <span>Mandante:</span>
+                </label>
+                <input type="text" name="mandante" id="mandante" />
+            </div>
+            <div>
+                <label>
+                    <span>Visitante:</span>
+                </label>
+                <input type="text" name="visitante" id="visitante" />
+            </div>
+            <div>
+                <label>
+                    <span>Date:</span>
+                </label>
+                <input type="date" name="date" id="date" />
+            </div>
+        </fieldset>
+    </form>
+
+    <script type="text/javascript">
+        var buttonMandante = document.getElementById('rad-mandante');
+        var buttonVisitante = document.getElementById('rad-visitante');
+
+        buttonMandante.addEventListener('click', function() {
+            document.getElementById('mandante').value = "Meu Clube";
+            document.getElementById('mandante').readOnly = true;
+            document.getElementById('visitante').value = null;
+            document.getElementById('visitante').readOnly = false;
+        });
+
+        buttonVisitante.addEventListener('click', function() {
+            document.getElementById('visitante').value = "Meu Clube";
+            document.getElementById('visitante').readOnly = true;
+            document.getElementById('mandante').value = null;
+            document.getElementById('mandante').readOnly = false;
+        });
+    </script>
+<?php
 }
 
 /**
