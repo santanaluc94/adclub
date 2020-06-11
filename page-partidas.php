@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 /*
-    template name: elenco
+    template name: partidas
 */
 
 
@@ -15,21 +15,21 @@ get_header(); ?>
                 </h1>
             </div>
         </section>
-        <section class="secao">               
+        <section class="secao">
             <div class="col-12 colunas-secao d-flex align-items-center">
                 <div id="accordion" class="col-12">
-                    <?php query_posts( array(
-                                'post_type' => array( 'jogos', ),
-                                'posts_per_page' => -1                                                                
-                            ) );  
-                          $id = get_the_ID();   
+                    <?php query_posts( [
+                                'post_type' => array['partidas'],
+                                'posts_per_page' => -1
+                    ]);
+                          $id = get_the_ID();
                     ?>
-                        <?php if(have_posts()): while(have_posts()): the_post(); ?> 
+                        <?php if(have_posts()): while(have_posts()): the_post(); ?>
                         <div class="card">
-                            <div class="card-header" id="headingOne">                                    
-                                <a class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $id?>" aria-expanded="false" aria-controls="collapseOne" style="width:100%">  
-                                    <div class="d-flex">  
-                                        <div class="placar">                                            
+                            <div class="card-header" id="headingOne">
+                                <a class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $id?>" aria-expanded="false" aria-controls="collapseOne" style="width:100%">
+                                    <div class="d-flex">
+                                        <div class="placar">
                                             <img class="escudo" src="<?php the_field('escudo_da_casa'); ?>" />
                                             <span class="texto-card"><?php the_field('time_da_casa'); ?></span>
                                             <span class="texto-card-info"><?php the_field('estadio'); ?></span>
@@ -42,10 +42,10 @@ get_header(); ?>
                                             <span class="texto-card"><?php the_field('time_visitante'); ?></span>
                                             <span class="texto-card-info"><?php the_field('horario'); ?></span>
                                         </div>
-                                    </div>    
-                                    
-                                </a>                                     
-                            </div>                                  
+                                    </div>
+
+                                </a>
+                            </div>
                             <div id="collapse<?php echo $id?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <a class="text-center" target="_blank" href="<?php the_field('sumula'); ?>">Súmula</a></br>
@@ -53,14 +53,14 @@ get_header(); ?>
                                 </div>
                             </div>
                         </div>
-                        <?php endwhile; ?>    
+                        <?php endwhile; ?>
                         <?php else : ?>
-                            Não há jogos cadastrados
+                            Não há partidas cadastradas.
                         <?php endif; ?>
                     <?php wp_reset_query();?>
-                </div>    
+                </div>
             </div>
-        </section>                
+        </section>
     </div>
         <?php get_sidebar(); ?>
 
