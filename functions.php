@@ -241,8 +241,8 @@ function form_campeonato($post)
 {
     $campeonato = get_post_meta($post->ID);
     $ano_atual = date('Y');
-    $primeiro_ano = $ano_atual + 30;
-    $ultimo_ano = date('Y');
+    $primeiro_ano = $ano_atual - 30;
+    $ultimo_ano = date('Y') + 1;
 ?>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/form_atleta.css">
 
