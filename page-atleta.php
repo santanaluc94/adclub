@@ -8,7 +8,7 @@ get_header();
 
 query_posts(
     [
-        'post_type' => ['atletas'],
+        'post_type' => ['atleta'],
         'posts_per_page' => -1,
         'orderby' => 'posicao',
         'order' => 'asc'
@@ -55,8 +55,8 @@ query_posts(
                         </div>
                     <?php endwhile; ?>
                 <?php else : ?>
-                    <div class="col-md-12 row">
-                        <article class="texto">
+                    <div class="col-md-12">
+                        <article class="sub-texto">
                             <p class="texto-pagina">Não há atletas cadastrados</p>
                         </article>
                     </div>

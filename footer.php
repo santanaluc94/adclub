@@ -5,8 +5,8 @@
             <?php if (have_posts()) : ?>
                 <?php while (have_posts()) : the_post();
                     $qtd++; ?>
-            <?php endwhile;
-            endif; ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
 
             <?php if ($qtd == 1) : ?>
                 <h1>
@@ -27,7 +27,7 @@
             <?php if (have_posts()) : ?>
                 <?php while (have_posts()) : ?>
                     <?php the_post(); ?>
-                    <a href="<?php the_field('site'); ?>" target="_blank" class="link-marcas">
+                    <a href="<?php get_post_meta(get_the_ID(), 'site')[0]; ?>" target="_blank" class="link-marcas">
                         <?php the_post_thumbnail('thumbnail', ['class' => 'img-patrocinador']) ?>
                     </a>
                 <?php endwhile; ?>
