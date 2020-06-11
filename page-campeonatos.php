@@ -1,14 +1,13 @@
 <?php
 
 /**
- * template name: page
+ * template name: campeonatos
  */
 
 get_header();
 ?>
 
 <div class="container container-top d-flex">
-
     <div class="conteudo-flex col-md-12">
         <section class="secao">
             <div class="row titulo-site">

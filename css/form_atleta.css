@@ -1,3 +1,22 @@
-fieldset {
-    background: red;
+div.form-box {
+    margin-bottom: 15px;
+}
+
+label.form-etiqueta {
+    width: 20%;
+    font-weight: 600;
+    margin-top: 7.5px;
+}
+
+input.form-campo,
+select {
+    float: right;
+    clear: both;
+    width: 40%;
+    margin-right: 25%;
+}
+
+input.form-campo-lateral {
+    clear: both;
+    width: 85%;
 }

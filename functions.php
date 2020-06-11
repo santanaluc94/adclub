@@ -30,7 +30,7 @@ function change_logo_class($html)
 }
 
 /**
- * Create custom posts type - Atleta
+ * Create custom posts type - Atleta, Patrocinadores, Campeonatos
  */
 function create_post_type()
 {
@@ -42,7 +42,7 @@ function create_post_type()
                 'name' => __('Atletas'),
                 'singular_name' => __('Atleta'),
                 'add_new' => __('Adicionar Atleta'),
-                'add_new_item' => __('Adicionar Novo Atleta'),
+                'add_new_item' => __('Adicionar Atleta'),
                 'edit_item' => __('Editar Atleta'),
                 'all_items' => __('Todos os Atletas'),
                 'view_item' => __('Visualizar Atleta'),
@@ -53,7 +53,8 @@ function create_post_type()
             'rewrite' => ['slug' => 'atleta'],
             'supports' => [
                 'thumbnail'
-            ]
+            ],
+            'menu_icon' => 'dashicons-groups'
         ]
     );
 
@@ -65,7 +66,7 @@ function create_post_type()
                 'name' => __('Patrocinadores'),
                 'singular_name' => __('Patrocinador'),
                 'add_new' => __('Adicionar Patrocinador'),
-                'add_new_item' => __('Adicionar Novo Patrocinador'),
+                'add_new_item' => __('Adicionar Patrocinador'),
                 'edit_item' => __('Editar Patrocinador'),
                 'all_items' => __('Todos os Patrocinadores'),
                 'view_item' => __('Visualizar Patrocinador'),
@@ -78,7 +79,34 @@ function create_post_type()
                 'title',
                 'editor',
                 'thumbnail'
-            ]
+            ],
+            'menu_icon' => 'dashicons-money'
+        ]
+    );
+
+    // Function to create post Campeonatos
+    register_post_type(
+        'campeonatos',
+        [
+            'labels' => [
+                'name' => __('Campeonatos'),
+                'singular_name' => __('Campeonato'),
+                'add_new' => __('Adicionar Campeonato'),
+                'add_new_item' => __('Adicionar Campeonato'),
+                'edit_item' => __('Editar Campeonato'),
+                'all_items' => __('Todos os Campeonatos'),
+                'view_item' => __('Visualizar Campeonato'),
+                'search_item' => __('Buscar Campeonato'),
+            ],
+            'public' => true,
+            'has_archive' => false,
+            'rewrite' => ['slug' => 'campeonatos'],
+            'supports' => [
+                'title',
+                'editor',
+                'thumbnail'
+            ],
+            'menu_icon' => 'dashicons-awards'
         ]
     );
 }
@@ -93,6 +121,7 @@ add_action('init', 'create_post_type');
  */
 function register_custom_posts()
 {
+    // Atletas
     add_meta_box(
         'info-atleta',
         'Informações do Atleta',
@@ -102,12 +131,23 @@ function register_custom_posts()
         'high'
     );
 
+    // Patrocinadores
     add_meta_box(
         'info-patrocinador',
         'Informações do Patrocinador',
         'form_patrocinador',
         'patrocinadores',
-        'normal',
+        'side',
+        'high'
+    );
+
+    // Campeonatos
+    add_meta_box(
+        'info-campeonato',
+        'Informações do Campeonato',
+        'form_campeonato',
+        'campeonatos',
+        'side',
         'high'
     );
 }
@@ -130,60 +170,46 @@ function form_atleta($post)
 
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/form_atleta.css">
 
-    <form method="post">
-        <h1>Form atleta</h1>
+    <div class="container">
+        <form method="post">
+            <fieldset>
+                <div class="row form-box">
+                    <label class="form-etiqueta" for="nomes">Nome:</label>
+                    <input class="form-campo" name="nome" id="nome" type="text" value="<?= $atleta['nome'][0] ?>" required />
+                </div>
 
-        <fieldset>
-            <div>
-                <label>
-                    <span>Nome</span>
-                </label>
-                <input name="nome" id="nome" type="text" value="<?= $atleta['nome'][0] ?>" required />
-            </div>
+                <div class="row form-box">
+                    <label class="form-etiqueta" for="nome_completo">Nome Completo:</label>
+                    <input class="form-campo" name="nome_completo" id="nome_completo" type="text" value="<?= $atleta['nome_completo'][0] ?>" required />
+                </div>
 
-            <div>
-                <label>
-                    <span>Nome Completo:</span>
-                </label>
-                <input name="nome_completo" id="nome_completo" type="text" value="<?= $atleta['nome_completo'][0] ?>" required />
-            </div>
+                <div class="row form-box">
+                    <label class="form-etiqueta" for="altura">Altura: (cm)</label>
+                    <input class="form-campo" name="altura" id="altura" type="text" value="<?= $atleta['altura'][0] ?>" />
+                </div>
 
-            <div>
-                <label>
-                    <span>Altura:</span>
-                </label>
-                <input name="altura" id="altura" type="text" value="<?= $atleta['altura'][0] ?>" />
-                <span>cm</span>
-            </div>
+                <div class="row form-box">
+                    <label class="form-etiqueta" for="peso">Peso: (kg)</label>
+                    <input class="form-campo" name="peso" id="peso" type="text" value="<?= $atleta['peso'][0] ?>" />
+                </div>
 
-            <div>
-                <label>
-                    <span>Peso:</span>
-                </label>
-                <input name="peso" id="peso" type="text" value="<?= $atleta['peso'][0] ?>" />
-                <span>kg</span>
-            </div>
+                <div class="row form-box">
+                    <label class="form-etiqueta" for="posicao">Posição:</label>
+                    <input class="form-campo" name="posicao" id="posicao" type="text" value="<?= $atleta['posicao'][0] ?>" />
+                </div>
 
-            <div>
-                <label>
-                    <span>Posição:</span>
-                </label>
-                <input name="posicao" id="posicao" type="text" value="<?= $atleta['posicao'][0] ?>" />
-            </div>
-
-            <div>
-                <label>
-                    <span>Data de Nascimento:</span>
-                </label>
-                <input name="data_de_nascimento" id="data_de_nascimento" type="date" value="<?= $atleta['data_de_nascimento'][0] ?>" required />
-            </div>
-        </fieldset>
-    </form>
+                <div class="row form-box">
+                    <label class="form-etiqueta" for="data_de_nascimento">Data de Nascimento:</label>
+                    <input class="form-campo" name="data_de_nascimento" id="data_de_nascimento" type="date" value="<?= $atleta['data_de_nascimento'][0] ?>" required />
+                </div>
+            </fieldset>
+        </form>
+    </div>
 <?php
 }
 
 /**
- * Create form to Atletas in custom post
+ * Create form to Patrocinadores in custom post
  *
  * @param object $post
  * @return void
@@ -192,18 +218,50 @@ function form_patrocinador($post)
 {
     $patrocinador = get_post_meta($post->ID);
 ?>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/form_atleta.css">
 
     <form method="post">
         <fieldset>
-            <div>
-                <label>
-                    <span>Site</span>
-                </label>
-                <input name="site" id="site" type="text" value="<?= $patrocinador['site'][0] ?>" required />
+            <div class="row form-box">
+                <label class="form-etiqueta" for="site">Site:</label>
+                <input class="form-campo-lateral" name="site" id="site" type="text" value="<?= $patrocinador['site'][0] ?>" required />
             </div>
         </fieldset>
     </form>
 <?php
+}
+
+/**
+ * Create form to Campeonatos in custom post
+ *
+ * @param object $post
+ * @return void
+ */
+function form_campeonato($post)
+{
+    $campeonato = get_post_meta($post->ID);
+    $ano_atual = date('Y');
+    $primeiro_ano = $ano_atual + 30;
+    $ultimo_ano = date('Y');
+?>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/form_atleta.css">
+
+    <form method="post">
+        <fieldset>
+            <div class="row form-box">
+                <label class="form-etiqueta" for="campeonato_ano">Ano:</label>
+                <select class="form-campo" name="campeonato_ano">
+                    <?php foreach (range($ultimo_ano, $primeiro_ano) as $ano) : ?>
+                        <option value="<?= $ano ?>" <?= $campeonato['campeonato_ano'][0] == $ano ? 'selected' : '' ?>>
+                            <?= $ano ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </fieldset>
+    </form>
+<?php
+
 }
 
 /**
@@ -266,6 +324,24 @@ function save_patrocinador($post_id)
  */
 add_action('save_post', 'save_patrocinador');
 
+/**
+ * Save custom post Campeonato in SQL
+ *
+ * @param int $post_id
+ * @return void
+ */
+function save_campeonato($post_id)
+{
+    if (isset($_POST['campeonato_ano'])) {
+        update_post_meta($post_id, 'campeonato_ano', sanitize_text_field($_POST['campeonato_ano']));
+    }
+}
+
+/**
+ * Call function to save cutom post Campeonato in SQL
+ */
+add_action('save_post', 'save_campeonato');
+
 
 /**
  * Insert categories programmatically
@@ -306,13 +382,10 @@ function create_static_pages()
 {
     $html_sobre = '
         <article class="sub-texto">
-            <div class="row titulo-site">
-                <p class="texto-pagina">Conteúdo sobre o Clube.</p>
-            </div>
+            <p class="texto-pagina">Conteúdo sobre o Clube.</p>
         </article>';
 
     $html_extras = '
-    <article class="texto">
         <article class="sub-texto">
             <p class="texto-pagina">
                 Texto extra sobre o clube.
@@ -328,7 +401,6 @@ function create_static_pages()
                 Texto sobre a torcida do clube.
             </p>
         </article>
-
         <article class="sub-texto">
             <div class="row titulo-site">
                 <h1>
@@ -341,8 +413,7 @@ function create_static_pages()
                 Terceira linha do hino do Clube<br />
                 Quarta linha do hino do Clube<br />
             </p>
-        </article>
-    </article>';
+        </article>';
 
 
     if (get_option('function_execute_once_01') !== 'completed') {
