@@ -307,35 +307,50 @@ function form_partida($post)
 {
     $partida = get_post_meta($post->ID);
 ?>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/form_partidas.css">
+
     <form method="post">
         <fieldset>
-            <input class="rad-mandante" type="radio" name="mandante_visitante" id="rad-mandante" value="mandante" />
-            <label for="mandante">
-                <span>Mandante:</span>
-            </label>
-            <input class="rad-visitante" type="radio" name="mandante_visitante" id="rad-visitante" value="visitante" />
-            <label for="visitante">
-                <span>Visitante:</span>
-            </label>
-            </div>
-            <div>
-                <label for="mandante">
-                    <span>Mandante:</span>
-                </label>
-                <input type="text" name="mandante" id="mandante" />
-            </div>
-            <div>
-                <label>
-                    <span>Visitante:</span>
-                </label>
-                <input type="text" name="visitante" id="visitante" />
-            </div>
-            <div>
-                <label>
-                    <span>Date:</span>
-                </label>
-                <input type="date" name="date" id="date" />
-            </div>
+            <section class="container partida-data">
+                <div class="seletores-box item-seletores">
+                    <input class="rad-mandante" type="radio" name="mandante_visitante" id="rad-mandante" value="mandante" />
+                    <label for="mandante">
+                        <span>Mandante</span>
+                    </label>
+                </div>
+                <div class="seletores-box item-seletores">
+                    <input class="rad-visitante" type="radio" name="mandante_visitante" id="rad-visitante" value="visitante" />
+                    <label for="visitante">
+                        <span>Visitante</span>
+                    </label>
+                </div>
+                <div class="data-partida item-seletores">
+                    <label>
+                        <span>Data</span>
+                    </label>
+                    <input type="date" name="date" id="date" />
+                </div>
+            </section>
+
+            <section class="container partida-formulario">
+                <div class="item-partida">
+                    <label for="mandante">
+                        <span>Mandante</span>
+                    </label>
+                    <input type="text" name="mandante" id="mandante" />
+                </div>
+                <div class="item-partida">
+                    <span id="x">X</span>
+                </div>
+
+                <div class="item-partida item-visitante">
+                    <input type="text" name="visitante" id="visitante" />
+                    <label>
+                        <span>Visitante</span>
+                    </label>
+                </div>
+
+            </section>
         </fieldset>
     </form>
 
