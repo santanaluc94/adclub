@@ -521,6 +521,14 @@ function create_static_pages()
             'post_type' => 'page'
         ];
 
+        $page_partidas = [
+            'post_title' => 'Partidas',
+            'post_content' => '',
+            'post_status' => 'publish',
+            'post_author' => 1,
+            'post_type' => 'page'
+        ];
+
         $page_elenco = [
             'post_title' => 'Atletas',
             'post_content' => '',
@@ -546,6 +554,7 @@ function create_static_pages()
         ];
 
         wp_insert_post($page_sobre);
+        wp_insert_post($page_partidas);
         wp_insert_post($page_elenco);
         wp_insert_post($page_campeonatos);
         wp_insert_post($page_extra);
@@ -563,3 +572,43 @@ function create_static_pages()
  * Call function to create static page
  */
 add_action('admin_init', 'create_static_pages');
+
+/**
+ * Create Campeonatos taxonomy
+ *
+ * @return void
+ */
+function create_campeonatos()
+{
+    $singular_name = __('Campeonato');
+    $plural_name = __('Campeonatos');
+
+    $args = [
+        'labels' => [
+            'name' => $plural_name,
+            'singular_name' => $singular_name,
+            'singular_name' => $singular_name,
+            'edit_item' => $singular_name,
+            'add_new_item' => __("Adicionar novo $singular_name"),
+            'add_new' => __("Adicionar novo", $singular_name),
+            'new_item' => __("Novo $singular_name"),
+            'all_items' => __("All $plural_name"),
+            'view_item' => __("Visualizar $singular_name"),
+            'search_items' => __("Busque pelo $singular_name"),
+            'not_found' =>  __("Não foi encontrado nenhum $plural_name"),
+            'not_found_in_trash' => __("Nenhum $singular_name na lixiera"),
+            'parent_item_colon' => '',
+            'menu_name' => $plural_name
+        ],
+        'public' => true,
+        'hierarchical' => true,
+        'has_archive' => true,
+    ];
+
+    register_taxonomy('campeonatos', 'partidas', $args);
+}
+
+/**
+ * Call function to create taxonomy Campeonatos
+ */
+add_action('init', 'create_campeonatos');
