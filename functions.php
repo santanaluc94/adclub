@@ -702,7 +702,7 @@ function create_campeonatos()
             'add_new_item' => __("Adicionar novo $singular_name"),
             'add_new' => __("Adicionar novo", $singular_name),
             'new_item' => __("Novo $singular_name"),
-            'all_items' => __("All $plural_name"),
+            'all_items' => __("Todos os $plural_name"),
             'view_item' => __("Visualizar $singular_name"),
             'search_items' => __("Busque pelo $singular_name"),
             'not_found' =>  __("Não foi encontrado nenhum $plural_name"),
@@ -747,13 +747,13 @@ function create_club_settings()
 
 function club_configurations()
 {
-    ?>
+?>
     <h1>Configurações do Clube</h1>
 
     <form>
 
     </form>
-    <?php
+<?php
 }
 
 /**
@@ -811,3 +811,102 @@ function meu_clube()
 {
     return $meu_clube = "Meu Clube";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Create field to taxonomy Campeonatos
+ *
+ * @return void
+ */
+function add_field_to_taxonomy_campeonatos()
+{
+?>
+    <div class="form-field">
+        <label for="term_meta[ano]"><?= __('Ano do Campeonato'); ?></label>
+        <input type="text" name="term_meta[ano]" id="term_meta[ano]" value="">
+        <p class="description"><?= __('Ano que o campeonato será exibido.'); ?></p>
+    </div>
+<?php
+}
+
+/**
+ * Call function to create taxonomy Campeonatos
+ */
+add_action('campeonatos_add_form_fields', 'add_field_to_taxonomy_campeonatos', 10, 2);
+
+
+/**
+ * Create field to page edit taxonomy Campeonatos
+ *
+ * @param object $term
+ * @return void
+ */
+function page_edit_taxonomy_campeonatos($term)
+{
+    $term_meta = get_option('taxonomy_' . $term->term_id);
+?>
+    <tr class="form-field">
+        <th scope="row" valign="top"><label for="term_meta[ano]"><?= __('Ano do Campeonato'); ?></label></th>
+        <td>
+            <input type="text" name="term_meta[ano]" id="term_meta[ano]" value="<?= esc_attr($term_meta['ano']) ? esc_attr($term_meta['ano']) : ''; ?>">
+            <p class="description"><?= __('Ano que o campeonato será exibido.'); ?></p>
+        </td>
+    </tr>
+<?php
+}
+
+/**
+ * Call function to create field taxonomy Campeonatos in edit page
+ */
+add_action('campeonatos_edit_form_fields', 'page_edit_taxonomy_campeonatos', 10, 2);
+
+/**
+ * Save taxonomy Campeonatos
+ *
+ * @param int $term_id
+ * @return void
+ */
+function save_taxonomy_campeonatos($term_id)
+{
+    if (isset($_POST['term_meta'])) {
+        $term_meta = get_option('taxonomy_' . $term_id);
+        $cat_keys = array_keys($_POST['term_meta']);
+
+        foreach ($cat_keys as $key) {
+            if (isset($_POST['term_meta'][$key])) {
+                $term_meta[$key] = $_POST['term_meta'][$key];
+            }
+        }
+
+        // Save the option array.
+        update_option('taxonomy_' . $term_id, $term_meta);
+    }
+}
+
+
+/**
+ * Call function to save taxonomy in edit page
+ */
+add_action('edited_campeonatos', 'save_taxonomy_campeonatos', 10, 2);
+
+/**
+ * Call function to save taxonomy in new page
+ */
+add_action('create_campeonatos', 'save_taxonomy_campeonatos', 10, 2);

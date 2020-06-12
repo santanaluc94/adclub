@@ -3,6 +3,7 @@
 /**
  * template name: partidas
  */
+get_header();
 
 query_posts([
     'post_type' => ['partidas'],
@@ -10,6 +11,8 @@ query_posts([
 ]);
 
 get_header(); ?>
+
+?>
 <div class="container d-flex">
     <div class="conteudo-flex col-md-9 col-sm-12">
         <section class="inicio-secao">
@@ -19,15 +22,20 @@ get_header(); ?>
                 </h1>
             </div>
         </section>
-        <section class="secao">
+        <section class="inicio-secao">
             <div class="col-12 colunas-secao d-flex align-items-center">
                 <div id="" class="col-12">
                     <?php if (have_posts()) : ?>
-                        <?php $id = get_the_ID(); ?>
                         <?php while (have_posts()) : the_post(); ?>
+                            <?php $campeonato = get_the_term_list(get_the_ID(), 'campeonatos'); ?>
+                            <div class="row titulo-site">
+                                <h1>
+                                    <span class="titulo-pagina"><?= $campeonato ?></span>
+                                </h1>
+                            </div>
                             <div class="card">
                                 <div class="card-header">
-                                    <a class="btn btn-link"style="width:100%">
+                                    <a class="btn btn-link" style="width:100%">
                                         <div class="d-flex">
                                             <div class="placar">
                                                 <img class="escudo" src="<?= get_post_meta(get_the_ID(), '')[0]; ?>" />
