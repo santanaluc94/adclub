@@ -3,7 +3,6 @@ div.seletores-box {
 }
 
 div.item-seletores {
-    /* margin-bottom: 15px; */
     width: 20%;
     font-weight: 600;
     margin-top: 7.5px;
@@ -30,9 +29,13 @@ div.item-partida {
     font-weight: 600;
 }
 
-span#x {
+div.caixa-x span {
     vertical-align: sub;
     text-align: center;
+}
+
+div.item-estadio {
+    margin-top: 15px;
 }
 
 
@@ -41,7 +44,7 @@ span#x {
         display: block;
     }
 
-    span#x {
+    div.caixa-x {
         display: none;
     }
 
