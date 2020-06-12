@@ -120,7 +120,7 @@ function create_post_type()
                 'add_new' => __('Adicionar Partida'),
                 'add_new_item' => __('Adicionar Partida'),
                 'edit_item' => __('Editar Partida'),
-                'all_items' => __('Todos os Partidas'),
+                'all_items' => __('Todas as Partidas'),
                 'view_item' => __('Visualizar Partida'),
                 'search_item' => __('Buscar Partida'),
             ],
@@ -727,7 +727,39 @@ function create_campeonatos()
 add_action('init', 'create_campeonatos');
 
 
+/**
+ * Create club settings
+ *
+ * @return void
+ */
+function create_club_settings()
+{
+    add_menu_page(
+        'Clube',
+        'Clube',
+        'manage_options',
+        'configuracoes_clube',
+        'club_configurations',
+        'dashicons-admin-generic',
+        2
+    );
+}
 
+function club_configurations()
+{
+    ?>
+    <h1>Configurações do Clube</h1>
+
+    <form>
+
+    </form>
+    <?php
+}
+
+/**
+ * Call function to create club settings
+ */
+add_action('admin_menu', 'create_club_settings');
 
 
 /**
