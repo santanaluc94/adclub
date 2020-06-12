@@ -128,7 +128,8 @@ function create_post_type()
             'has_archive' => false,
             'rewrite' => ['slug' => 'partidas'],
             'supports' => [
-                'thumbnail'
+                'thumbnail',
+                'title'
             ],
             'menu_icon' => 'dashicons-tickets-alt'
         ]
@@ -202,6 +203,7 @@ function form_atleta($post)
     $atleta = get_post_meta($post->ID);
 ?>
 
+    <?= wp_dropdown_pages('posts') ?>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/form_atleta.css">
 
     <div class="container">
@@ -306,11 +308,15 @@ function form_campeonato($post)
 function form_partida($post)
 {
     $partida = get_post_meta($post->ID);
+    $clube = meu_clube();
+    $partida = get_post_meta($post->ID);
+
 ?>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/form_partidas.css">
 
     <form method="post">
         <fieldset>
+            <input type="text" value="<?= $clube ?>" id="nome_clube" hidden />
             <section class="container partida-data">
                 <div class="seletores-box item-seletores">
                     <input class="rad-mandante" type="radio" name="mandante_visitante" id="rad-mandante" value="mandante" />
@@ -328,7 +334,19 @@ function form_partida($post)
                     <label>
                         <span>Data</span>
                     </label>
-                    <input type="date" name="date" id="date" />
+                    <input type="date" name="data" id="data" value="<?= $partida['data'][0] ?>" />
+                </div>
+                <div class="data-partida item-seletores">
+                    <label id="estadio">
+                        <span>Estadio</span>
+                    </label>
+                    <input type="text" name="estadio" id="estadio" value="<?= $partida['estadio'][0] ?>" />
+                </div>
+                <div class="data-partida item-seletores">
+                    <label id="horario">
+                        <span>Horário</span>
+                    </label>
+                    <input type="time" name="horario" id="horario" value="<?= $partida['horario'][0] ?>" />
                 </div>
             </section>
 
@@ -337,39 +355,68 @@ function form_partida($post)
                     <label for="mandante">
                         <span>Mandante</span>
                     </label>
-                    <input type="text" name="mandante" id="mandante" />
+                    <input type="text" name="mandante" id="mandante" value="<?= $partida['mandante'][0] ?>" />
                 </div>
-                <div class="item-partida">
-                    <span id="x">X</span>
+                <div class="item-partida caixa-x">
+                    <span>X</span>
                 </div>
 
                 <div class="item-partida item-visitante">
-                    <input type="text" name="visitante" id="visitante" />
-                    <label>
+                    <input type="text" name="visitante" id="visitante" value="<?= $partida['visitante'][0] ?>" />
+                    <label id="visitante">
                         <span>Visitante</span>
                     </label>
                 </div>
-
             </section>
         </fieldset>
     </form>
 
     <script type="text/javascript">
-        var buttonMandante = document.getElementById('rad-mandante');
-        var buttonVisitante = document.getElementById('rad-visitante');
+        let buttonMandante = document.getElementById('rad-mandante');
+        let buttonVisitante = document.getElementById('rad-visitante');
 
         buttonMandante.addEventListener('click', function() {
-            document.getElementById('mandante').value = "Meu Clube";
+            document.getElementById('mandante').value = document.getElementById('nome_clube').value;
             document.getElementById('mandante').readOnly = true;
             document.getElementById('visitante').value = null;
             document.getElementById('visitante').readOnly = false;
         });
 
         buttonVisitante.addEventListener('click', function() {
-            document.getElementById('visitante').value = "Meu Clube";
+            document.getElementById('visitante').value = document.getElementById('nome_clube').value;
             document.getElementById('visitante').readOnly = true;
             document.getElementById('mandante').value = null;
             document.getElementById('mandante').readOnly = false;
+        });
+
+        function escondeLabelVisitante() {
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                document.getElementById('visitante-desk').style.display = 'none';
+                document.getElementById('visitante-mobile').style.display = 'block';
+            }
+
+            if (window.matchMedia("(min-width: 768px)").matches) {
+                document.getElementById('visitante-mobile').style.display = 'none';
+                document.getElementById('visitante-desk').style.display = 'block';
+            }
+        }
+
+        window.onload = function() {
+            if (document.getElementById('nome_clube').value == document.getElementById('mandante').value) {
+                document.getElementById('rad-mandante').checked = true;
+                document.getElementById('mandante').readOnly = true;
+            }
+
+            if (document.getElementById('nome_clube').value == document.getElementById('visitante').value) {
+                document.getElementById('rad-visitante').checked = true;
+                document.getElementById('visitante').readOnly = true;
+            }
+
+            escondeLabelVisitante();
+        }
+
+        window.addEventListener("resize", function() {
+            escondeLabelVisitante();
         });
     </script>
 <?php
@@ -387,7 +434,7 @@ function save_atletas($post_id)
         update_post_meta($post_id, 'nome', sanitize_text_field($_POST['nome']));
 
         global $wpdb;
-        $wpdb->update($wpdb->posts, array('post_title' => sanitize_text_field($_POST['nome'])), array('ID' => $post_id));
+        $wpdb->update($wpdb->posts, ['post_title' => sanitize_text_field($_POST['nome'])], ['ID' => $post_id]);
     }
 
     if (isset($_POST['nome_completo'])) {
@@ -452,6 +499,54 @@ function save_campeonato($post_id)
  * Call function to save cutom post Campeonato in SQL
  */
 add_action('save_post', 'save_campeonato');
+
+/**
+ * Save custom post Partidas in SQL
+ *
+ * @param int $post_id
+ * @return void
+ */
+function save_partidas($post_id)
+{
+    $clube = meu_clube();
+
+    if (isset($_POST['mandante_visitante'])) {
+        if ($_POST['mandante_visitante'] === 'mandante') {
+            update_post_meta($post_id, 'mandante', $clube);
+            update_post_meta($post_id, 'visitante', sanitize_text_field($_POST['visitante']));
+        }
+
+        if ($_POST['mandante_visitante'] === 'visitante') {
+            update_post_meta($post_id, 'visitante', $clube);
+            update_post_meta($post_id, 'mandante', sanitize_text_field($_POST['mandante']));
+        }
+    }
+
+    if (isset($_POST['data'])) {
+        update_post_meta($post_id, 'data', sanitize_text_field($_POST['data']));
+    }
+
+    if (isset($_POST['estadio'])) {
+        update_post_meta($post_id, 'estadio', sanitize_text_field($_POST['estadio']));
+    }
+
+    if (isset($_POST['horario'])) {
+        update_post_meta($post_id, 'horario', sanitize_text_field($_POST['horario']));
+    }
+
+    if (isset($_POST['mandante']) && isset($_POST['visitante'])) {
+        $post_name = sanitize_text_field($_POST['mandante'] . ' x ' . $_POST['visitante']);
+        wp_update_post([
+            'ID' => $post_id,
+            'post_title' => $post_name,
+        ]);
+    }
+}
+
+/**
+ * Call function to save cutom post Campeonato in SQL
+ */
+add_action('save_post', 'save_partidas');
 
 
 /**
@@ -618,6 +713,9 @@ function create_campeonatos()
         'public' => true,
         'hierarchical' => true,
         'has_archive' => true,
+        'supports' => array('thumbnail'),
+        'show_ui'           => true,
+        'show_admin_column' => true,
     ];
 
     register_taxonomy('campeonatos', 'partidas', $args);
@@ -627,3 +725,57 @@ function create_campeonatos()
  * Call function to create taxonomy Campeonatos
  */
 add_action('init', 'create_campeonatos');
+
+
+
+
+
+/**
+ * Use radio inputs instead of checkboxes for term checklists in Campeonatos taxonomy.
+ *
+ * @param array $args
+ * @return array
+ */
+function change_radio_in_campeonatos_taxonomy($args)
+{
+    if (!empty($args['taxonomy']) && $args['taxonomy'] === 'campeonatos') {
+        if (empty($args['walker']) || is_a($args['walker'], 'Walker')) {
+            if (!class_exists('WPSE_139269_Walker_Category_Radio_Checklist')) {
+                /**
+                 * Custom walker for switching checkbox inputs to radio.
+                 *
+                 * @see Walker_Category_Checklist
+                 */
+                class WPSE_139269_Walker_Category_Radio_Checklist extends Walker_Category_Checklist
+                {
+                    function walk($elements, $max_depth, ...$args)
+                    {
+                        $output = parent::walk($elements, $max_depth, ...$args);
+                        $output = str_replace(
+                            array('type="checkbox"', "type='checkbox'"),
+                            array('type="radio"', "type='radio'"),
+                            $output
+                        );
+
+                        return $output;
+                    }
+                }
+            }
+
+            $args['walker'] = new WPSE_139269_Walker_Category_Radio_Checklist;
+        }
+    }
+
+    return $args;
+}
+
+add_filter('wp_terms_checklist_args', 'change_radio_in_campeonatos_taxonomy');
+
+
+
+
+
+function meu_clube()
+{
+    return $meu_clube = "Meu Clube";
+}

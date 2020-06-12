@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/style.css">
 
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/index.css">
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/single.css">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/atletas.css">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/campeonatos.css">
 
