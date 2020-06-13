@@ -60,21 +60,35 @@
 
                 <div>
                     <ul class="midias-sociais-superior">
-                        <li class="list-inline-item">
-                            <a href="https://www.facebook.com/" class="fa-superior fa fa-facebook-f"></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://twitter.com/" class="fa-superior fa fa-twitter"></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.mercadolivre.com.br/" class="fa-superior fa fa-handshake-o"></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.instagram.com/" class="fa-superior fa fa-instagram"></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.youtube.com/" class="fa-superior fa fa-youtube-play"></a>
-                        </li>
+                        <?php if (!empty(esc_attr(get_option('section_social_medias_store')))) : ?>
+                            <li class="list-inline-item">
+                                <a href="<?= esc_attr(get_option('section_social_medias_store')) ?>" class="fa-superior fa fa-shopping-cart" target="__blank"></a>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if (!empty(esc_attr(get_option('section_social_medias_facebook')))) : ?>
+                            <li class="list-inline-item">
+                                <a href="<?= esc_attr(get_option('section_social_medias_facebook')) ?>" class="fa-superior fa fa-facebook-f" target="__blank"></a>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if (!empty(esc_attr(get_option('section_social_medias_twitter')))) : ?>
+                            <li class="list-inline-item">
+                                <a href="<?= esc_attr(get_option('section_social_medias_twitter')) ?>" class="fa-superior fa fa-twitter" target="__blank"></a>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if (!empty(esc_attr(get_option('section_social_medias_instagram')))) : ?>
+                            <li class="list-inline-item">
+                                <a href="<?= esc_attr(get_option('section_social_medias_instagram')) ?>" class="fa-superior fa fa-instagram" target="__blank"></a>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if (!empty(esc_attr(get_option('section_social_medias_youtube')))) : ?>
+                            <li class="list-inline-item">
+                                <a href="<?= esc_attr(get_option('section_social_medias_youtube')) ?>" class="fa-superior fa fa-youtube-play" target="__blank"></a>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
