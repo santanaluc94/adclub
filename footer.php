@@ -47,12 +47,13 @@
         <div class="row footer-superior">
             <div class=" col-sm-4 col-md col-sm-4 col-12 col">
                 <h4 class="titulo-footer">Sobre o A.D. Clube</h4>
-                <div class="texto-footer">
-                    <p class="mb-2">
-                        O A.D. Clube é um template para Wordpress que visa disponibilizar uma opção gratuita para clubes
-                        que possuem baixo orçamento para investir em um site.
-                    </p>
-                </div>
+                <?php if (!empty(esc_attr(get_option('section_footer_about')))) : ?>
+                    <div class="texto-footer">
+                        <p class="mb-2">
+                            <?= esc_attr(get_option('section_footer_about')) ?>
+                        </p>
+                    </div>
+                <?php endif; ?>
                 <!-- Text about club -->
             </div>
             <div class="col-sm-4 col-md col-sm-4 col-12 col">
@@ -72,7 +73,9 @@
             <div class="col-sm-4 col-md col-sm-4 col-12 col">
                 <h4 class="titulo-footer">Entre em Contato:</h4>
                 <div class="mb-2 texto-footer">
-                    <p><span>E-mail: </span>santanaluc94@gmail.com</p>
+                    <?php if (!empty(esc_attr(get_option('section_footer_about')))) : ?>
+                        <p><?= esc_attr(get_option('section_footer_contact')) ?></p>
+                    <?php endif; ?>
                 </div>
                 <!-- Contact -->
             </div>
@@ -80,21 +83,35 @@
 
         <div class="row">
             <ul class="midias-sociais-inferior">
-                <li>
-                    <a href="https://www.facebook.com/" class="fa-inferior fa fa-facebook-f"></a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/" class="fa-inferior fa fa-twitter"></a>
-                </li>
-                <li>
-                    <a href="https://www.mercadolivre.com.br/" class="fa-inferior fa fa-handshake-o"></a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/" class="fa-inferior fa fa-instagram"></a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/" class="fa-inferior fa fa-youtube-play"></a>
-                </li>
+                <?php if (!empty(esc_attr(get_option('section_social_medias_store')))) : ?>
+                    <li class="list-inline-item">
+                        <a href="<?= esc_attr(get_option('section_social_medias_store')) ?>" class="fa-inferior fa fa-shopping-cart" target="__blank"></a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if (!empty(esc_attr(get_option('section_social_medias_facebook')))) : ?>
+                    <li class="list-inline-item">
+                        <a href="<?= esc_attr(get_option('section_social_medias_facebook')) ?>" class="fa-inferior fa fa-facebook-f" target="__blank"></a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if (!empty(esc_attr(get_option('section_social_medias_twitter')))) : ?>
+                    <li class="list-inline-item">
+                        <a href="<?= esc_attr(get_option('section_social_medias_twitter')) ?>" class="fa-inferior fa fa-twitter" target="__blank"></a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if (!empty(esc_attr(get_option('section_social_medias_instagram')))) : ?>
+                    <li class="list-inline-item">
+                        <a href="<?= esc_attr(get_option('section_social_medias_instagram')) ?>" class="fa-inferior fa fa-instagram" target="__blank"></a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if (!empty(esc_attr(get_option('section_social_medias_youtube')))) : ?>
+                    <li class="list-inline-item">
+                        <a href="<?= esc_attr(get_option('section_social_medias_youtube')) ?>" class="fa-inferior fa fa-youtube-play" target="__blank"></a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
 
