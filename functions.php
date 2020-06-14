@@ -1,5 +1,7 @@
 <?php
 
+load_theme_textdomain( 'adclube', get_template_directory() . '/languages' );
+
 /**
  * Enable Logo
  */
@@ -29,8 +31,9 @@ function change_logo_class($html)
     return $html;
 }
 
-include_once __DIR__ . '/includes/custom_posts.php';
-include_once __DIR__ . '/includes/my_club.php';
+include_once __DIR__ . '/plugins/includes/custom_posts.php';
+include_once __DIR__ . '/plugins/sponsors/sponsors.php';
+include_once __DIR__ . '/plugins/includes/my_club.php';
 
 /**
  * Use radio inputs instead of checkboxes for term checklists in Campeonatos taxonomy.
@@ -85,3 +88,6 @@ function meu_clube()
 {
     return $meu_clube = "Meu Clube";
 }
+
+
+define( 'WP_DEBUG', false );

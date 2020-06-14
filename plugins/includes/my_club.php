@@ -51,6 +51,8 @@ function create_my_club_configurations()
 
         <?php settings_fields('group_footer') ?>
 
+        <?php settings_fields('group_admin_settings') ?>
+
         <?php submit_button() ?>
     </form>
 <?php
@@ -242,6 +244,30 @@ function create_my_club_section()
 
     // Save Footer contact field
     register_setting('group_footer', 'section_footer_contact');
+
+
+
+
+
+    // Footer section
+    add_settings_section(
+        'section_settings',
+        __('Admin Settings'),
+        'create_fields_section_admin',
+        'my_club'
+    );
+
+    // Add Footer about field
+    add_settings_field(
+        'section_settings_sponsors',
+        __('Enabled Sponsors'),
+        'settings_sponsors',
+        'my_club',
+        'section_settings'
+    );
+
+    // Save Footer about field
+    register_setting('group_admin_settings', 'section_settings_sponsors');
 }
 
 /**
@@ -286,6 +312,18 @@ function create_fields_section_footer()
 }
 
 /**
+ * Comment to section Footer
+ *
+ * @return void
+ */
+function create_fields_section_admin()
+{
+?>
+    <p><?= __('Habilite as páginas no painel do Wordpress que será utilizada pelo Clube.') ?></p>
+<?php
+}
+
+/**
  * Create input name in Meu Clube page
  *
  * @return void
@@ -293,7 +331,7 @@ function create_fields_section_footer()
 function my_club_name_field()
 {
 ?>
-    <input type="text" id="section_my_club_name" name="section_my_club_name" style="width: 40%;" value="<?= esc_attr(get_option('section_my_club_name')) ?>" required />
+    <input type="text" id="section_my_club_name" name="section_my_club_name" style="width: 40%;" value="<?= esc_attr(get_option('section_my_club_name')) ?>" />
 <?php
 }
 
@@ -305,7 +343,7 @@ function my_club_name_field()
 function my_club_stadium_field()
 {
 ?>
-    <input type="text" id="section_my_club_stadium" name="section_my_club_stadium" style="width: 40%;" value="<?= esc_attr(get_option('section_my_club_stadium')) ?>" required />
+    <input type="text" id="section_my_club_stadium" name="section_my_club_stadium" style="width: 40%;" value="<?= esc_attr(get_option('section_my_club_stadium')) ?>" />
 <?php
 }
 
@@ -317,7 +355,7 @@ function my_club_stadium_field()
 function my_club_main_color_field()
 {
 ?>
-    <input type="color" id="section_my_club_main_color" name="section_my_club_main_color" value="<?= esc_attr(get_option('section_my_club_main_color')) ?: '#c70039' ?>" required />
+    <input type="color" id="section_my_club_main_color" name="section_my_club_main_color" value="<?= esc_attr(get_option('section_my_club_main_color')) ?: '#c70039' ?>" />
 <?php
 }
 
@@ -329,7 +367,7 @@ function my_club_main_color_field()
 function my_club_second_color_field()
 {
 ?>
-    <input type="color" id="section_my_club_second_color" name="section_my_club_second_color" value="<?= esc_attr(get_option('section_my_club_second_color')) ?: '#FFC300' ?>" required />
+    <input type="color" id="section_my_club_second_color" name="section_my_club_second_color" value="<?= esc_attr(get_option('section_my_club_second_color')) ?: '#FFC300' ?>" />
 <?php
 }
 
@@ -341,7 +379,7 @@ function my_club_second_color_field()
 function my_club_third_color_field()
 {
 ?>
-    <input type="color" id="section_my_club_third_color" name="section_my_club_third_color" value="<?= esc_attr(get_option('section_my_club_third_color')) ?: '#FFFFFF' ?>" required />
+    <input type="color" id="section_my_club_third_color" name="section_my_club_third_color" value="<?= esc_attr(get_option('section_my_club_third_color')) ?: '#FFFFFF' ?>" />
 <?php
 }
 
@@ -432,5 +470,20 @@ function footer_contact()
         <?= esc_attr(get_option('section_footer_contact')) ?: __('Insira o texto que irá no campo Entre em Contato do rodapé.') ?>
     </textarea>
     <p><?= __('Limite máximo de 300 caracteres.') ?></p>
+<?php
+}
+
+/**
+ * Create textarea contact in Meu Clube page
+ *
+ * @return void
+ */
+function settings_sponsors()
+{
+?>
+    <select id="section_settings_sponsors" name="section_settings_sponsors">
+        <option <?= esc_attr(get_option('section_settings_sponsors')) === '1' ? 'selected' : '' ?> value="1"><?= __('Yes') ?></option>
+        <option <?= esc_attr(get_option('section_settings_sponsors')) === '0' ? 'selected' : '' ?> value="0"><?= __('No') ?></option>
+    </select>
 <?php
 }
