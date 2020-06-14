@@ -1,46 +1,47 @@
-<div class="container">
-    <section class="secao-patrocinadores">
-        <div class="row titulo-site">
-            <?php query_posts(['post_type' => ['patrocinadores']]); ?>
-            <?php if (have_posts()) : ?>
-                <?php while (have_posts()) : the_post();
-                    $qtd++; ?>
-                <?php endwhile; ?>
-            <?php endif; ?>
+<?php if ((bool) esc_attr(get_option('section_settings_sponsors'))) : ?>
+    <div class="container">
+        <section class="secao-patrocinadores">
+            <div class="row titulo-site">
+                <?php query_posts(['post_type' => ['sponsors']]); ?>
+                <?php if (have_posts()) : ?>
+                    <?php while (have_posts()) : the_post();
+                        $qtd++; ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
 
-            <?php if ($qtd == 1) : ?>
-                <h1>
-                    <span class="titulo-pagina">Patrocinador</span>
-                </h1>
-            <?php elseif ($qtd >= 2) : ?>
-                <h1>
-                    <span class="titulo-pagina">Patrocinadores</span>
-                </h1>
-            <?php else : ?>
-                <h1>
-                    <span class="titulo-pagina">Sem Patrocinadores</span>
-                </h1>
-            <?php endif; ?>
-        </div>
+                <?php if ($qtd == 1) : ?>
+                    <h1>
+                        <span class="titulo-pagina">Patrocinador</span>
+                    </h1>
+                <?php elseif ($qtd >= 2) : ?>
+                    <h1>
+                        <span class="titulo-pagina">Patrocinadores</span>
+                    </h1>
+                <?php else : ?>
+                    <h1>
+                        <span class="titulo-pagina">Sem Patrocinadores</span>
+                    </h1>
+                <?php endif; ?>
+            </div>
 
-        <div class="row patrocinadores">
-            <?php if (have_posts()) : ?>
-                <?php while (have_posts()) : ?>
-                    <?php the_post(); ?>
-                    <a href="<?php get_post_meta(get_the_ID(), 'site')[0]; ?>" target="_blank" class="link-marcas">
-                        <?php the_post_thumbnail('thumbnail', ['class' => 'img-patrocinador']) ?>
-                    </a>
-                <?php endwhile; ?>
-            <?php else : ?>
-                <div class="col-md-12 row">
-                    <article class="texto">
-                        <p class="texto-pagina">Estamos sem patrocinadores no momento.</p>
-                    </article>
-                </div>
-            <?php endif; ?>
-        </div>
-    </section>
-</div>
+            <div class="row patrocinadores">
+                <?php if (have_posts()) : ?>
+                    <?php while (have_posts()) : the_post(); ?>
+                        <a href="<?= get_post_meta(get_the_ID(), 'site')[0]; ?>" target="_blank" class="link-marcas">
+                            <?php the_post_thumbnail('thumbnail', ['class' => 'img-patrocinador']) ?>
+                        </a>
+                    <?php endwhile; ?>
+                <?php else : ?>
+                    <div class="col-md-12 row">
+                        <article class="texto">
+                            <p class="texto-pagina">Estamos sem patrocinadores no momento.</p>
+                        </article>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </section>
+    </div>
+<?php endif; ?>
 
 <footer>
     <div class="container">
