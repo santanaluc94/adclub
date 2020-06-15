@@ -1,6 +1,6 @@
 <?php
 
-load_theme_textdomain( 'adclube', get_template_directory() . '/languages' );
+load_theme_textdomain('page-atletas', basename(dirname(__FILE__)) . '/languages');
 
 /**
  * Enable Logo
@@ -90,4 +90,4 @@ function meu_clube()
 }
 
 
-define( 'WP_DEBUG', false );
+define('WP_DEBUG', false);
