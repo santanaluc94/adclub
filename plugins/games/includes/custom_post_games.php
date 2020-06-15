@@ -69,8 +69,8 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
     function form_games($post)
     {
         $games = get_post_meta($post->ID);
-        $clube = meu_clube();
-        $estadio = meu_estadio();
+        $clube = esc_attr(get_option('section_club_abbreviation'));
+        $estadio = esc_attr(get_option('section_club_stadium'));
 ?>
         <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/plugins/games/css/form_games.css">
 
@@ -161,14 +161,14 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
         if (isset($_POST['home_guest'])) {
             if ($_POST['home_guest'] === 'home') {
                 $guest_club = substr(sanitize_text_field($_POST['guest']), 0, 3);
-                update_post_meta($post_id, 'home', meu_clube());
+                update_post_meta($post_id, 'home', esc_attr(get_option('section_club_abbreviation')));
                 update_post_meta($post_id, 'guest', $guest_club);
-                update_post_meta($post_id, 'stadium', meu_estadio());
+                update_post_meta($post_id, 'stadium', esc_attr(get_option('section_club_stadium')));
             }
 
             if ($_POST['home_guest'] === 'guest') {
                 $home_club = substr(sanitize_text_field($_POST['home']), 0, 3);
-                update_post_meta($post_id, 'guest', meu_clube());
+                update_post_meta($post_id, 'guest', esc_attr(get_option('section_club_abbreviation')));
                 update_post_meta($post_id, 'home', $home_club);
                 update_post_meta($post_id, 'stadium', sanitize_text_field($_POST['stadium']));
             }

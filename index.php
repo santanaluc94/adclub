@@ -13,6 +13,13 @@ $post_noticias = [
     'posts_per_page' => 6,
     'category_name' => 'Matéria'
 ];
+
+$post_games = [
+    'post_type' => 'games',
+    'posts_per_page' => 2,
+    'order' => 'DESC',
+    'orderby' => 'date',
+];
 ?>
 
 <div class="container container-top">
@@ -66,6 +73,78 @@ $post_noticias = [
         <?php endif; ?>
     </section>
 
+    <!-- Blocos dos Próximos Jogos -->
+    <section class="secao">
+        <article class="sub-texto">
+            <div class="row titulo-site">
+                <h1>
+                    <span class="titulo-pagina"><?= __('Games') ?></span>
+                </h1>
+            </div>
+            <div class="col-md-12">
+                <?php $query = new WP_Query($post_games); ?>
+                <?php if ($query->have_posts()) : $qtd_game = 0; ?>
+                    <div class="row">
+                        <?php while ($query->have_posts()) : $query->the_post(); ?>
+                            <?php
+                            $home_club = get_post_meta(get_the_ID(), 'home')[0];
+                            $stadium = get_post_meta(get_the_ID(), 'stadium')[0];
+                            $home_score =  get_post_meta(get_the_ID(), 'score_home')[0];
+                            $guest_score =  get_post_meta(get_the_ID(), 'score_guest')[0];
+                            $guest_club = get_post_meta(get_the_ID(), 'guest')[0];
+                            $date = get_post_meta(get_the_ID(), 'date')[0];
+                            $hour = get_post_meta(get_the_ID(), 'hour')[0];
+                            $club_name = esc_attr(get_option('section_club_abbreviation'));
+                            $games_indication = [
+                                0 => 'Next Game',
+                                1 => 'Last Game'
+                            ]
+                            ?>
+                            <div class="col-md-5 card">
+                                <div class="card-header">
+                                    <div class="game-title-header">
+                                        <?= $games_indication[$qtd_game] ?>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="placar">
+                                            <?php if ($club_name == $home_club) : ?>
+                                                <img class="escudo" src="<?= bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
+                                            <?php else : ?>
+                                                <?php the_post_thumbnail('thumbnail', ['class' => 'escudo']) ?>
+                                            <?php endif; ?>
+                                            <span class="texto-card"><?= substr($home_club, 0, 3); ?></span>
+                                            <span class="texto-card-info"><?= $stadium; ?></span>
+                                        </div>
+                                        <div class="placar">
+                                            <span class="texto-card-placar"><?= $home_score ?> x <?= $guest_score; ?></span>
+                                        </div>
+                                        <div class="placar">
+                                            <?php if ($club_name == $guest_club) : ?>
+                                                <img class="escudo" src="<?= bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
+                                            <?php else : ?>
+                                                <?php the_post_thumbnail('thumbnail', ['class' => 'escudo']) ?>
+                                            <?php endif; ?>
+                                            <span class="texto-card"><?= substr($guest_club, 0, 3); ?></span>
+                                            <span class="texto-card-info">
+                                                <?= format_date($date); ?> <?= $hour ?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php $qtd_game++; ?>
+                        <?php endwhile; ?>
+                    </div>
+                <?php else : ?>
+                    <article class="texto">
+                        <p><?= __('The club does not have games.'); ?></p>
+                    </article>
+                    <?php wp_reset_query(); ?>
+                <?php endif; ?>
+            </div>
+        </article>
+    </section>
+
     <!-- Blocos das Matérias -->
     <section class="secao">
         <article class="sub-texto">
@@ -108,8 +187,5 @@ $post_noticias = [
             <?php endif; ?>
         </article>
     </section>
-</div>
-
-
 </div>
 <?php get_footer(); ?>
