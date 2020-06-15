@@ -1,5 +1,11 @@
 <?php
 
+include_once __DIR__ . '/plugins/includes/custom_posts.php';
+include_once __DIR__ . '/plugins/sponsors/sponsors.php';
+include_once __DIR__ . '/plugins/players/players.php';
+include_once __DIR__ . '/plugins/games/games.php';
+include_once __DIR__ . '/plugins/includes/my_club.php';
+
 load_theme_textdomain('page-atletas', basename(dirname(__FILE__)) . '/languages');
 
 /**
@@ -31,51 +37,47 @@ function change_logo_class($html)
     return $html;
 }
 
-include_once __DIR__ . '/plugins/includes/custom_posts.php';
-include_once __DIR__ . '/plugins/sponsors/sponsors.php';
-include_once __DIR__ . '/plugins/includes/my_club.php';
-
 /**
- * Use radio inputs instead of checkboxes for term checklists in Campeonatos taxonomy.
+ * Insert post categories programmatically
  *
- * @param array $args
- * @return array
+ * @return void
  */
-function change_radio_in_campeonatos_taxonomy($args)
+function insert_categories()
 {
-    if (!empty($args['taxonomy']) && $args['taxonomy'] === 'campeonatos') {
-        if (empty($args['walker']) || is_a($args['walker'], 'Walker')) {
-            if (!class_exists('WPSE_139269_Walker_Category_Radio_Checklist')) {
-                /**
-                 * Custom walker for switching checkbox inputs to radio.
-                 *
-                 * @see Walker_Category_Checklist
-                 */
-                class WPSE_139269_Walker_Category_Radio_Checklist extends Walker_Category_Checklist
-                {
-                    function walk($elements, $max_depth, ...$args)
-                    {
-                        $output = parent::walk($elements, $max_depth, ...$args);
-                        $output = str_replace(
-                            array('type="checkbox"', "type='checkbox'"),
-                            array('type="radio"', "type='radio'"),
-                            $output
-                        );
+    wp_insert_term(
+        'Matéria',
+        'category',
+        [
+            'slug' => 'materia'
+        ]
+    );
 
-                        return $output;
-                    }
-                }
-            }
-
-            $args['walker'] = new WPSE_139269_Walker_Category_Radio_Checklist;
-        }
-    }
-
-    return $args;
+    wp_insert_term(
+        'Destaques',
+        'category',
+        [
+            'slug' => 'destaques'
+        ]
+    );
 }
 
-add_filter('wp_terms_checklist_args', 'change_radio_in_campeonatos_taxonomy');
+/**
+ * Call function to insert categories
+ */
+add_action('after_setup_theme', 'insert_categories');
 
+/**
+ * Format date to brazilian date
+ *
+ * @param string $date
+ * @return string
+ */
+function format_date(string $date)
+{
+    $date_formated = explode('-', $date);
+
+    return $date_formated[2] . '/' . $date_formated[1] . '/' . $date_formated[0];
+}
 
 
 
@@ -86,7 +88,28 @@ add_filter('wp_terms_checklist_args', 'change_radio_in_campeonatos_taxonomy');
  */
 function meu_clube()
 {
-    return $meu_clube = "Meu Clube";
+    return "Meu Clube";
+}
+
+/**
+ * Club stadium
+ *
+ * @return string
+ */
+function meu_estadio()
+{
+    return "Estádio do Meu Clube";
+}
+
+/**
+ * Club stadium
+ *
+ * @return string
+ */
+function meu_escudo_url()
+{
+    $url = bloginfo("template_directory") . '/img/adc-logo.png';
+    return $url;
 }
 
 

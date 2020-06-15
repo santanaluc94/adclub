@@ -1,0 +1,21 @@
+Sponsors,Patrocinadores
+Sponsor,Patrocinador
+Add Sponsor,Adicionar Patrocinador
+Add new Sponsor,Adicionar novo Patrocinador
+Edit Sponsor,Editar Patrocinador
+All Sponsors,Todos os Patrocinadores
+View Sponsor,Visualizra Patrocinador
+Search Sponsor,Buscar Patrocinador
+Sponsors Information,Informações do Patrocinador
+Admin Settings,Configurações do Administrador
+"Name:","Nome:"
+"Full Name:","Nome Completo:"
+"Height: (cm)","Altura: (cm)"
+"Weight: (kg)","Peso: (kg)"
+"Function:","Posição:"
+"Birthday:","Data de Nascimento:"
+Home,Mandante
+Guest,Visitante
+Date,Data
+Stadium,Estadio
+Hour,Horário

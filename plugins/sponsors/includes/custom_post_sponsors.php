@@ -1,8 +1,13 @@
 <?php
 
+/**
+ * Enable setting if Sponsors is enable
+ */
 if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
     /**
      * Create custom post Sponsors
+     *
+     * @return void
      */
     function create_post_sponsor()
     {
@@ -67,6 +72,12 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
     {
         $sponsor = get_post_meta($post->ID);
 ?>
+        <?php if ($_SESSION['my_admin_errors_sponsors']) : ?>
+            <div class="error">
+                <p><?= $_SESSION['my_admin_errors_sponsors'] ?></p>
+                <?php unset($_SESSION['my_admin_errors_sponsors']); ?>
+            </div>
+        <?php endif; ?>
 
         <form method="post">
             <fieldset>
@@ -87,8 +98,15 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
      */
     function save_sponsor($post_id)
     {
+        $_SESSION['my_admin_errors_sponsors'] = '';
+
         if (isset($_POST['site'])) {
-            update_post_meta($post_id, 'site', sanitize_text_field($_POST['site']));
+            if (filter_var($_POST['site'], FILTER_VALIDATE_URL)) {
+                update_post_meta($post_id, 'site', sanitize_text_field($_POST['site']));
+            } else {
+                $_SESSION['my_admin_errors_sponsors'] .= __('The field Site must be an URL.');
+                return;
+            }
         }
     }
 
