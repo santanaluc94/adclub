@@ -68,3 +68,15 @@ span.texto-card-info {
     font-size: 14px;
     font-weight: 500;
 }
+
+@media only screen and (max-width: 768px) {
+    div.card {
+        margin: 10px auto !important;
+        border: 1.5px var(--second-color) solid;
+        box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.50);
+        width: 100%;
+        padding: 0;
+    }
+
+
+}
