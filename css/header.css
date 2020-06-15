@@ -80,6 +80,7 @@ a.fa-superior:hover {
     border-bottom: 3px solid var(--main-color);
     top: 75px;
     position: relative;
+    width: 100%;
 }
 
 .barra_navegacao ul {

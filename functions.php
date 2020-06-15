@@ -44,18 +44,18 @@ function change_logo_class($html)
 function insert_categories()
 {
     wp_insert_term(
-        'Matéria',
+        __('Notices'),
         'category',
         [
-            'slug' => 'materia'
+            'slug' => 'notices'
         ]
     );
 
     wp_insert_term(
-        'Destaques',
+        __('Highlights'),
         'category',
         [
-            'slug' => 'destaques'
+            'slug' => 'highlights'
         ]
     );
 }

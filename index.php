@@ -5,13 +5,13 @@ get_header();
 $post_destaques = [
     'post_type' => 'post',
     'posts_per_page' => 3,
-    'category_name' => 'Destaques'
+    'category_name' => 'Highlights'
 ];
 
 $post_noticias = [
     'post_type' => 'post',
     'posts_per_page' => 6,
-    'category_name' => 'Matéria'
+    'category_name' => 'Notices'
 ];
 
 $post_games = [
