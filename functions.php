@@ -6,7 +6,7 @@ include_once __DIR__ . '/plugins/players/players.php';
 include_once __DIR__ . '/plugins/games/games.php';
 include_once __DIR__ . '/plugins/includes/my_club.php';
 
-load_theme_textdomain('adclube', get_template_directory() . '/languages');
+load_theme_textdomain('page-atletas', basename(dirname(__FILE__)) . '/languages');
 
 /**
  * Enable Logo

@@ -55,9 +55,9 @@ query_posts(
                         </div>
                     <?php endwhile; ?>
                 <?php else : ?>
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row sem-atleta">
                         <article class="texto">
-                            <p class="texto-pagina">Não há atletas cadastrados</p>
+                            <p class="texto-pagina"><?= __('There are no registered players', 'tradutor') ?></p>
                         </article>
                     </div>
                 <?php endif; ?>
