@@ -1,16 +1,16 @@
 <?php
 
 /**
- * template name: atletas
+ * template name: players
  */
 
 get_header();
 
 query_posts(
     [
-        'post_type' => ['atletas'],
+        'post_type' => ['players'],
         'posts_per_page' => -1,
-        'orderby' => 'posicao',
+        'orderby' => 'position',
         'order' => 'asc'
     ]
 );
@@ -33,22 +33,34 @@ query_posts(
                                         <?php the_post_thumbnail('thumbnail', ['class' => 'card-img-top text-center']) ?>
                                     </div>
                                     <div class="card-footer">
-                                        <h5 class="card-title"><?= get_post_meta(get_the_ID(), 'nome')[0]; ?></h5>
-                                        <p class="card-text">
-                                            <span>Nome:</span> <?= get_post_meta(get_the_ID(), 'nome_completo')[0]; ?>
-                                        </p>
-                                        <p class="card-text">
-                                            <span>Peso:</span> <?= get_post_meta(get_the_ID(), 'peso')[0]; ?>kg
-                                        </p>
-                                        <p class="card-text">
-                                            <span> Altura:</span> <?= get_post_meta(get_the_ID(), 'altura')[0]; ?>cm
-                                        </p>
-                                        <p class="card-text">
-                                            <span>Nascimento:</span> <?= get_post_meta(get_the_ID(), 'data_de_nascimento')[0]; ?>
-                                        </p>
-                                        <p class="card-text">
-                                            <span>Posição:</span> <?= get_post_meta(get_the_ID(), 'posicao')[0]; ?>
-                                        </p>
+                                        <?php if (!empty(get_post_meta(get_the_ID(), 'name')[0])) : ?>
+                                            <h5 class="card-title"><?= get_post_meta(get_the_ID(), 'name')[0]; ?></h5>
+                                        <?php endif; ?>
+                                        <?php if (!empty(get_post_meta(get_the_ID(), 'full_name')[0])) : ?>
+                                            <p class="card-text">
+                                                <span>Nome:</span> <?= get_post_meta(get_the_ID(), 'full_name')[0]; ?>
+                                            </p>
+                                        <?php endif; ?>
+                                        <?php if (!empty(get_post_meta(get_the_ID(), 'weight')[0])) : ?>
+                                            <p class="card-text">
+                                                <span>Peso:</span> <?= get_post_meta(get_the_ID(), 'weight')[0]; ?>kg
+                                            </p>
+                                        <?php endif; ?>
+                                        <?php if (!empty(get_post_meta(get_the_ID(), 'height')[0])) : ?>
+                                            <p class="card-text">
+                                                <span> Altura:</span> <?= get_post_meta(get_the_ID(), 'height')[0]; ?>cm
+                                            </p>
+                                        <?php endif; ?>
+                                        <?php if (!empty(get_post_meta(get_the_ID(), 'birthday')[0])) : ?>
+                                            <p class="card-text">
+                                                <span>Nascimento:</span> <?= format_date(get_post_meta(get_the_ID(), 'birthday')[0]); ?>
+                                            </p>
+                                        <?php endif; ?>
+                                        <?php if (!empty(get_post_meta(get_the_ID(), 'position')[0])) : ?>
+                                            <p class="card-text">
+                                                <span>Posição:</span> <?= get_post_meta(get_the_ID(), 'position')[0]; ?>
+                                            </p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +69,7 @@ query_posts(
                 <?php else : ?>
                     <div class="col-md-12 row">
                         <article class="texto">
-                            <p class="texto-pagina">Não há atletas cadastrados</p>
+                            <p class="texto-pagina"><?= 'There is not players registered.' ?></p>
                         </article>
                     </div>
                 <?php endif; ?>

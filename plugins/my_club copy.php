@@ -15,8 +15,8 @@ if (!defined('ABSPATH')) {
 function create_club_settings()
 {
     add_menu_page(
-        __('Meu Clube'),
-        __('Meu Clube'),
+        __('My Club'),
+        __('My Club'),
         'manage_options',
         'my_club',
         'create_my_club_configurations',
@@ -31,7 +31,7 @@ function create_club_settings()
 add_action('admin_menu', 'create_club_settings');
 
 /**
- * Function to renderize Meu Clube page
+ * Function to renderize My Club page
  *
  * @return void
  */
@@ -39,24 +39,25 @@ function create_my_club_configurations()
 {
 ?>
     <div>
-        <h1><?= __('Meu Clube') ?></h1>
+        <h1><?= __('My Club') ?></h1>
     </div>
 
     <form method="post" action="options.php">
-        <?php do_settings_sections('my_club') ?>
+        <?php do_settings_sections('my_club'); ?>
 
-        <?php settings_fields('group_my_club') ?>
+        <?php settings_fields('group_club'); ?>
 
-        <?php settings_fields('group_social_medias') ?>
+        <?php settings_fields('group_social_medias'); ?>
 
-        <?php settings_fields('group_footer') ?>
+        <?php settings_fields('group_footer'); ?>
 
-        <?php settings_fields('group_admin_settings') ?>
+        <?php settings_fields('group_admin_settings'); ?>
 
-        <?php submit_button() ?>
+        <?php submit_button(); ?>
     </form>
 <?php
 }
+
 
 /**
  * Ceate Meu Clube section
@@ -67,76 +68,88 @@ function create_my_club_section()
 {
     // My Club section
     add_settings_section(
-        'section_my_club',
-        __('Configurações do Meu Clube'),
-        'create_fields_section_my_club',
+        'section_club',
+        __('Club Settings'),
+        'create_fields_section_club',
         'my_club'
     );
 
 
     // Add My Club name field
     add_settings_field(
-        'section_my_club_name',
-        __('Nome do Meu Clube'),
-        'my_club_name_field',
+        'section_club_name',
+        __('Club name'),
+        'club_name',
         'my_club',
-        'section_my_club'
+        'section_club'
     );
 
     // Save My Club name field
-    register_setting('group_my_club', 'section_my_club_name');
+    register_setting('group_club', 'section_club_name');
+
+    // // Add My Club third field
+    // add_settings_field(
+    //     'section_club_logo',
+    //     __('Club Logo'),
+    //     'club_logo',
+    //     'my_club',
+    //     'section_club'
+    // );
+
+    // // Save My Club third field
+    // register_setting('group_club', 'section_club_logo');
 
 
-    // Add My Club stadium field
-    add_settings_field(
-        'section_my_club_stadium',
-        __('Nome do Estádio'),
-        'my_club_stadium_field',
-        'my_club',
-        'section_my_club'
-    );
+    // // Add My Club stadium field
+    // add_settings_field(
+    //     'section_club_stadium',
+    //     __('Club Stadium'),
+    //     'club_stadium',
+    //     'my_club',
+    //     'section_club'
+    // );
 
-    // Save My Club stadium field
-    register_setting('group_my_club', 'section_my_club_stadium');
-
-
-    // Add My Club stadium field
-    add_settings_field(
-        'section_my_club_main_color',
-        __('Primeira Cor do Time'),
-        'my_club_main_color_field',
-        'my_club',
-        'section_my_club'
-    );
-
-    // Save My Club stadium field
-    register_setting('group_my_club', 'section_my_club_main_color');
+    // // Save My Club stadium field
+    // register_setting('group_club', 'section_club_stadium');
 
 
-    // Add My Club second field
-    add_settings_field(
-        'section_my_club_second_color',
-        __('Segunda Cor do Time'),
-        'my_club_second_color_field',
-        'my_club',
-        'section_my_club'
-    );
+    // // Add My Club stadium field
+    // add_settings_field(
+    //     'section_club_first',
+    //     __('Club First Color:'),
+    //     'club_first_color',
+    //     'my_club',
+    //     'section_club'
+    // );
 
-    // Save My Club second field
-    register_setting('group_my_club', 'section_my_club_second_color');
+    // // Save My Club stadium field
+    // register_setting('group_club', 'section_club_first');
 
 
-    // Add My Club third field
-    add_settings_field(
-        'section_my_club_third_color',
-        __('Terceira Cor do Time'),
-        'my_club_third_color_field',
-        'my_club',
-        'section_my_club'
-    );
+    // // Add My Club second field
+    // add_settings_field(
+    //     'section_club_second',
+    //     __('Club Second Color'),
+    //     'club_second_color',
+    //     'my_club',
+    //     'section_club'
+    // );
 
-    // Save My Club third field
-    register_setting('group_my_club', 'section_my_club_third_color');
+    // // Save My Club second field
+    // register_setting('group_club', 'section_club_second');
+
+
+    // // Add My Club third field
+    // add_settings_field(
+    //     'section_club_third',
+    //     __('Club Third Color'),
+    //     'club_third_color',
+    //     'my_club',
+    //     'section_club'
+    // );
+
+    // // Save My Club third field
+    // register_setting('group_club', 'club_third_color');
 
 
 
@@ -304,7 +317,7 @@ add_action('admin_menu', 'create_my_club_section');
  *
  * @return void
  */
-function create_fields_section_my_club()
+function create_fields_section_club()
 {
 ?>
     <p><?= __('Configure o nome, o estádio e as cores do seu time.') ?></p>
@@ -352,10 +365,22 @@ function create_fields_section_admin()
  *
  * @return void
  */
-function my_club_name_field()
+function club_name()
 {
 ?>
-    <input type="text" id="section_my_club_name" name="section_my_club_name" style="width: 40%;" value="<?= esc_attr(get_option('section_my_club_name')) ?>" />
+    <input type="text" id="section_club_name" name="section_club_name" style="width: 40%;" value="<?= esc_attr(get_option('section_club_name')) ?>" required />
+<?php
+}
+
+/**
+ * Create input name in Meu Clube page
+ *
+ * @return void
+ */
+function club_logo()
+{
+?>
+    <input type="file" id="section_club_logo" name="section_club_logo" style="width: 40%;" value="<?= esc_attr(get_option('section_club_logo')) ?>" />
 <?php
 }
 
@@ -364,10 +389,10 @@ function my_club_name_field()
  *
  * @return void
  */
-function my_club_stadium_field()
+function club_stadium()
 {
 ?>
-    <input type="text" id="section_my_club_stadium" name="section_my_club_stadium" style="width: 40%;" value="<?= esc_attr(get_option('section_my_club_stadium')) ?>" />
+    <input type="text" id="section_club_stadium" name="section_club_stadium" style="width: 40%;" value="<?= esc_attr(get_option('section_club_stadium')) ?>" required />
 <?php
 }
 
@@ -376,10 +401,10 @@ function my_club_stadium_field()
  *
  * @return void
  */
-function my_club_main_color_field()
+function club_first_color()
 {
 ?>
-    <input type="color" id="section_my_club_main_color" name="section_my_club_main_color" value="<?= esc_attr(get_option('section_my_club_main_color')) ?: '#c70039' ?>" />
+    <input type="color" id="section_club_first" name="section_club_first" value="<?= esc_attr(get_option('section_club_first')) ?: '#c70039' ?>" />
 <?php
 }
 
@@ -388,10 +413,10 @@ function my_club_main_color_field()
  *
  * @return void
  */
-function my_club_second_color_field()
+function club_second_color()
 {
 ?>
-    <input type="color" id="section_my_club_second_color" name="section_my_club_second_color" value="<?= esc_attr(get_option('section_my_club_second_color')) ?: '#FFC300' ?>" />
+    <input type="color" id="section_club_second" name="section_club_second" value="<?= esc_attr(get_option('section_club_second')) ?: '#FFC300' ?>" />
 <?php
 }
 
@@ -400,10 +425,10 @@ function my_club_second_color_field()
  *
  * @return void
  */
-function my_club_third_color_field()
+function club_third_color()
 {
 ?>
-    <input type="color" id="section_my_club_third_color" name="section_my_club_third_color" value="<?= esc_attr(get_option('section_my_club_third_color')) ?: '#FFFFFF' ?>" />
+    <input type="color" id="section_club_third" name="section_club_third" value="<?= esc_attr(get_option('section_club_third')) ?: '#FFFFFF' ?>" />
 <?php
 }
 

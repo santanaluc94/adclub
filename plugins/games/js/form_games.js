@@ -44,22 +44,19 @@ buttonVisitante.addEventListener('click', function () {
 
 let labelDate = document.getElementById('date');
 let currentDate = new Date();
-let today = currentDate.getFullYear() + '-' + String(currentDate.getMonth()).padStart(2, '0') + '-' + String(currentDate.getDate()).padStart(2, '0');
+let today = currentDate.getFullYear() + '-' + String(currentDate.getMonth() + 1).padStart(2, '0') + '-' + String(currentDate.getDate()).padStart(2, '0');
 
 // Check if date is greater than today and disabled or enabled input scores
 labelDate.addEventListener('blur', function () {
     if (labelDate.value > today) {
         document.getElementById('score_home').disabled = true;
         document.getElementById('score_home').value = '';
-        document.getElementsByName('score_guest')[0].disabled = true;
-        document.getElementsByName('score_guest')[0].value = '';
-        document.getElementsByName('score_guest')[1].disabled = true;
-        document.getElementsByName('score_guest')[1].value = '';
+        document.getElementById('score_guest').disabled = true;
+        document.getElementById('score_guest').value = '';
     }
 
     if (labelDate.value <= today) {
         document.getElementById('score_home').disabled = false;
-        document.getElementsByName('score_guest')[0].disabled = false;
-        document.getElementsByName('score_guest')[1].disabled = false;
+        document.getElementById('score_guest').disabled = false;
     }
 });
