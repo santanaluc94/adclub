@@ -145,7 +145,6 @@ function form_atleta($post)
     $atleta = get_post_meta($post->ID);
 ?>
 
-    <?= wp_dropdown_pages('posts') ?>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/form_atleta.css">
 
     <div class="container">
@@ -457,36 +456,6 @@ function create_partidas_post_title()
  * Call function to update Partidas post title
  */
 add_action('updated_post_meta', 'create_partidas_post_title');
-
-
-/**
- * Insert post categories programmatically
- *
- * @return void
- */
-function insert_categories()
-{
-    wp_insert_term(
-        'Matéria',
-        'category',
-        [
-            'slug' => 'materia'
-        ]
-    );
-
-    wp_insert_term(
-        'Destaques',
-        'category',
-        [
-            'slug' => 'destaques'
-        ]
-    );
-}
-
-/**
- * Call function to insert categories
- */
-add_action('after_setup_theme', 'insert_categories');
 
 
 /**

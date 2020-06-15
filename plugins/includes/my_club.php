@@ -249,7 +249,7 @@ function create_my_club_section()
 
 
 
-    // Footer section
+    // Admin settings section
     add_settings_section(
         'section_settings',
         __('Admin Settings'),
@@ -257,7 +257,7 @@ function create_my_club_section()
         'my_club'
     );
 
-    // Add Footer about field
+    // Sponsors configuration field
     add_settings_field(
         'section_settings_sponsors',
         __('Enabled Sponsors'),
@@ -266,8 +266,32 @@ function create_my_club_section()
         'section_settings'
     );
 
-    // Save Footer about field
+    // Register configuration field
     register_setting('group_admin_settings', 'section_settings_sponsors');
+
+    // Players configuration field
+    add_settings_field(
+        'section_settings_players',
+        __('Enabled Players'),
+        'settings_players',
+        'my_club',
+        'section_settings'
+    );
+
+    // Register configuration field
+    register_setting('group_admin_settings', 'section_settings_players');
+
+    // Gams configuration field
+    add_settings_field(
+        'section_settings_games',
+        __('Enabled Games'),
+        'settings_games',
+        'my_club',
+        'section_settings'
+    );
+
+    // Register configuration field
+    register_setting('group_admin_settings', 'section_settings_games');
 }
 
 /**
@@ -484,6 +508,36 @@ function settings_sponsors()
     <select id="section_settings_sponsors" name="section_settings_sponsors">
         <option <?= esc_attr(get_option('section_settings_sponsors')) === '1' ? 'selected' : '' ?> value="1"><?= __('Yes') ?></option>
         <option <?= esc_attr(get_option('section_settings_sponsors')) === '0' ? 'selected' : '' ?> value="0"><?= __('No') ?></option>
+    </select>
+<?php
+}
+
+/**
+ * Create textarea contact in Meu Clube page
+ *
+ * @return void
+ */
+function settings_players()
+{
+?>
+    <select id="section_settings_players" name="section_settings_players">
+        <option <?= esc_attr(get_option('section_settings_players')) === '1' ? 'selected' : '' ?> value="1"><?= __('Yes') ?></option>
+        <option <?= esc_attr(get_option('section_settings_players')) === '0' ? 'selected' : '' ?> value="0"><?= __('No') ?></option>
+    </select>
+<?php
+}
+
+/**
+ * Create textarea contact in Meu Clube page
+ *
+ * @return void
+ */
+function settings_games()
+{
+?>
+    <select id="section_settings_games" name="section_settings_games">
+        <option <?= esc_attr(get_option('section_settings_games')) === '1' ? 'selected' : '' ?> value="1"><?= __('Yes') ?></option>
+        <option <?= esc_attr(get_option('section_settings_games')) === '0' ? 'selected' : '' ?> value="0"><?= __('No') ?></option>
     </select>
 <?php
 }
