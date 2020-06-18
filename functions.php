@@ -5,8 +5,11 @@ include_once __DIR__ . '/plugins/sponsors/sponsors.php';
 include_once __DIR__ . '/plugins/players/players.php';
 include_once __DIR__ . '/plugins/games/games.php';
 
-load_theme_textdomain('page-atletas', basename(dirname(__FILE__)) . '/languages');
+add_action( 'after_setup_theme', 'my_theme_setup' );
 
+function my_theme_setup(){
+  load_theme_textdomain( 'adclube', get_template_directory() . '/languages' );
+}
 /**
  * Enable Logo
  */

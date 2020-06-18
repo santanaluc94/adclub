@@ -13,8 +13,6 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __\n"
-"X-Poedit-SearchPath-0: page-atletas.php\n"
 
-#: page-atletas.php:60
-msgid "There are no registered players"
-msgstr "Não há atletas cadastrados"
+msgid "My Club"
+msgstr "Meu Clube"
