@@ -4,22 +4,24 @@
             <div class="row titulo-site">
                 <?php query_posts(['post_type' => ['sponsors']]); ?>
                 <?php if (have_posts()) : ?>
-                    <?php while (have_posts()) : the_post();
-                        $qtd++; ?>
+                    <?php while (have_posts()) : the_post(); ?>
+                        <?php if (has_post_thumbnail()) {
+                            $qtd++;
+                        } ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
 
                 <?php if ($qtd == 1) : ?>
                     <h1>
-                        <span class="titulo-pagina">Patrocinador</span>
+                        <span class="titulo-pagina"><?= __('Sponsor') ?></span>
                     </h1>
                 <?php elseif ($qtd >= 2) : ?>
                     <h1>
-                        <span class="titulo-pagina">Patrocinadores</span>
+                        <span class="titulo-pagina"><?= __('Sponsors') ?></span>
                     </h1>
                 <?php else : ?>
                     <h1>
-                        <span class="titulo-pagina">Sem Patrocinadores</span>
+                        <span class="titulo-pagina"><?= __('No Sponsor') ?></span>
                     </h1>
                 <?php endif; ?>
             </div>
@@ -34,7 +36,7 @@
                 <?php else : ?>
                     <div class="col-md-12 row">
                         <article class="texto">
-                            <p class="texto-pagina">Estamos sem patrocinadores no momento.</p>
+                            <p class="texto-pagina"><?= __('We do not have sponsors at the moment.') ?></p>
                         </article>
                     </div>
                 <?php endif; ?>

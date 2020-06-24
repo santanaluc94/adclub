@@ -9,7 +9,7 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
      *
      * @return void
      */
-    function create_post_sponsor()
+    function create_post_sponsor(): void
     {
         register_post_type(
             'sponsors',
@@ -44,9 +44,8 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
     /**
      * Create form to Sponsors in SQL
      */
-    function register_custom_posts_sponsor()
+    function register_custom_posts_sponsor(): void
     {
-        // Patrocinadores
         add_meta_box(
             'sponsors-info',
             __('Sponsors Information', 'BR'),
@@ -65,10 +64,10 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
     /**
      * Create form to custom post Sponsors
      *
-     * @param array $post
+     * @param object $post
      * @return void
      */
-    function form_sponsors($post)
+    function form_sponsors(object $post): void
     {
         $sponsor = get_post_meta($post->ID);
 ?>
@@ -87,6 +86,10 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
                 </div>
             </fieldset>
         </form>
+
+        <script type="text/javascript">
+            document.getElementById('title').required = true;
+        </script>
 <?php
     }
 
@@ -94,18 +97,41 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
      * Save custom post Sponsor in SQL
      *
      * @param int $post_id
+     * @param object $post_id
      * @return void
      */
-    function save_sponsor($post_id)
+    function save_sponsor(int $post_id, object $post): void
     {
         $_SESSION['my_admin_errors_sponsors'] = '';
+
+        if (isset($_POST['post_title'])) {
+            if (empty($_POST['post_title'])) {
+                $_SESSION['my_admin_errors_sponsors'] .= __('Sponsor must have a title.');
+            }
+        }
 
         if (isset($_POST['site'])) {
             if (filter_var($_POST['site'], FILTER_VALIDATE_URL)) {
                 update_post_meta($post_id, 'site', sanitize_text_field($_POST['site']));
             } else {
                 $_SESSION['my_admin_errors_sponsors'] .= __('The field Site must be an URL.');
-                return;
+            }
+        }
+
+        if (isset($_POST['_thumbnail_id'])) {
+            if ((int) $_POST['_thumbnail_id'] === -1) {
+                $_SESSION['my_admin_errors_sponsors'] .= __('Sponsor must have a featured image.');
+            }
+        }
+
+        if (!empty($_SESSION['my_admin_errors_sponsors'])) {
+            $post_created = new DateTime($post->post_date_gmt);
+            $post_modified = new DateTime($post->post_modified_gmt);
+
+            if ($post_created->format('Y-m-d H:m') == $post_modified->format('Y-m-d H:m')) {
+                wp_delete_post($post_id);
+                wp_redirect(admin_url('/edit.php?post_type=sponsors'));
+                exit;
             }
         }
     }
@@ -113,5 +139,5 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
     /**
      * Call function to save cutom post Sponsor in SQL
      */
-    add_action('save_post', 'save_sponsor');
+    add_action('save_post', 'save_sponsor', 10, 3);
 }
