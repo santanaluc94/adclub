@@ -4,9 +4,14 @@ Theme URI: https://github.com/santanaluc94/adclub
 Author: Lucas Santana
 Author URI: https://github.com/santanaluc94/
 Description: Tema para clubes do wordpress
-Tags: Clube, clube, Associação, associação, esportes, esporte, times, time, desportes, deporte, desportivas, desportivas, atléticos, atlético, futebol, volei, basquete
+Tags: theme-options
 Version: 1.0
-Text Domain: A.D. Clube
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: adclube
 */
 body {
     margin: 0 auto;
@@ -53,3 +58,23 @@ p.texto-pagina {
         margin-top: 150px;
     }
 }
+
+
+
+.wp-caption {}
+
+.wp-caption-text {}
+
+.sticky {}
+
+.screen-reader-text {}
+
+.gallery-caption {}
+
+.bypostauthor {}
+
+.alignright {}
+
+.alignleft {}
+
+.aligncenter {}

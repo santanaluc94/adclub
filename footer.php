@@ -53,7 +53,7 @@
                 <?php if (!empty(esc_attr(get_option('section_footer_about')))) : ?>
                     <div class="texto-footer">
                         <p class="mb-2">
-                            <?php echo esc_attr(get_option('section_footer_about')) ?>
+                            <?php echo get_option('section_footer_about') ?>
                         </p>
                     </div>
                 <?php endif; ?>
@@ -77,7 +77,7 @@
                 <h4 class="titulo-footer">Entre em Contato:</h4>
                 <div class="mb-2 texto-footer">
                     <?php if (!empty(esc_attr(get_option('section_footer_about')))) : ?>
-                        <p><?php echo esc_attr(get_option('section_footer_contact')) ?></p>
+                        <p><?php echo get_option('section_footer_contact') ?></p>
                     <?php endif; ?>
                 </div>
                 <!-- Contact -->

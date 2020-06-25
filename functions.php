@@ -11,6 +11,7 @@ function my_theme_setup()
 {
     load_theme_textdomain('adclube', get_template_directory() . '/languages');
 }
+
 /**
  * Enable Logo
  */
@@ -109,7 +110,7 @@ function meu_estadio()
  */
 function meu_escudo_url()
 {
-    $url = bloginfo("template_directory") . '/img/adc-logo.png';
+    $url = esc_url(get_template_directory_uri()) . '/img/adc-logo.png';
     return $url;
 }
 

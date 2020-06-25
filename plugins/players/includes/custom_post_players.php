@@ -71,7 +71,7 @@ if ((bool) esc_attr(get_option('section_settings_players')) === true) {
     {
         $players = get_post_meta($post->ID);
 ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/plugins/players/css/form_players.css' ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/plugins/players/css/form_players.css' ?>">
 
         <?php if ($_SESSION['my_admin_errors_players']) : ?>
             <div class="error">

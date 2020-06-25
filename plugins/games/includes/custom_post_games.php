@@ -72,7 +72,7 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
         $clube = esc_attr(get_option('section_club_abbreviation'));
         $estadio = esc_attr(get_option('section_club_stadium'));
 ?>
-        <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/plugins/games/css/form_games.css">
+        <link rel="stylesheet" type="text/css" href="<?php esc_url(get_template_directory_uri()); ?>/plugins/games/css/form_games.css">
 
         <?php if (!empty($_SESSION['my_admin_errors_games'])) : ?>
             <div class="error">
@@ -143,7 +143,7 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
             </fieldset>
         </form>
 
-        <script type="text/javascript" src="<?php bloginfo("template_directory"); ?>/plugins/games/js/form_games.js">
+        <script type="text/javascript" src="<?php esc_url(get_template_directory_uri()); ?>/plugins/games/js/form_games.js">
         </script>
     <?php
     }

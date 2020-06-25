@@ -108,7 +108,7 @@ $post_games = [
                                     <div class="d-flex">
                                         <div class="placar">
                                             <?php if ($club_name == $home_club) : ?>
-                                                <img class="escudo" src="<?php echo bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
+                                                <img class="escudo" src="<?php echo esc_url(get_template_directory_uri()) . '/img/adc-logo.png' ?>" />
                                             <?php else : ?>
                                                 <?php the_post_thumbnail('thumbnail', ['class' => 'escudo']) ?>
                                             <?php endif; ?>
@@ -120,7 +120,7 @@ $post_games = [
                                         </div>
                                         <div class="placar">
                                             <?php if ($club_name == $guest_club) : ?>
-                                                <img class="escudo" src="<?php echo bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
+                                                <img class="escudo" src="<?php echo esc_url(get_template_directory_uri()) . '/img/adc-logo.png' ?>" />
                                             <?php else : ?>
                                                 <?php the_post_thumbnail('thumbnail', ['class' => 'escudo']) ?>
                                             <?php endif; ?>
