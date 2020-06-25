@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
  */
 function create_club_settings()
 {
-    add_menu_page(
+    add_theme_page(
         __('My Club Settings'),
         __('My Club'),
         'manage_options',
