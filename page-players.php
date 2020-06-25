@@ -34,31 +34,31 @@ query_posts(
                                     </div>
                                     <div class="card-footer">
                                         <?php if (!empty(get_post_meta(get_the_ID(), 'name')[0])) : ?>
-                                            <h5 class="card-title"><?= get_post_meta(get_the_ID(), 'name')[0]; ?></h5>
+                                            <h5 class="card-title"><?php echo get_post_meta(get_the_ID(), 'name')[0]; ?></h5>
                                         <?php endif; ?>
                                         <?php if (!empty(get_post_meta(get_the_ID(), 'full_name')[0])) : ?>
                                             <p class="card-text">
-                                                <span>Nome:</span> <?= get_post_meta(get_the_ID(), 'full_name')[0]; ?>
+                                                <span>Nome:</span> <?php echo get_post_meta(get_the_ID(), 'full_name')[0]; ?>
                                             </p>
                                         <?php endif; ?>
                                         <?php if (!empty(get_post_meta(get_the_ID(), 'weight')[0])) : ?>
                                             <p class="card-text">
-                                                <span>Peso:</span> <?= get_post_meta(get_the_ID(), 'weight')[0]; ?>kg
+                                                <span>Peso:</span> <?php echo get_post_meta(get_the_ID(), 'weight')[0]; ?>kg
                                             </p>
                                         <?php endif; ?>
                                         <?php if (!empty(get_post_meta(get_the_ID(), 'height')[0])) : ?>
                                             <p class="card-text">
-                                                <span> Altura:</span> <?= get_post_meta(get_the_ID(), 'height')[0]; ?>cm
+                                                <span> Altura:</span> <?php echo get_post_meta(get_the_ID(), 'height')[0]; ?>cm
                                             </p>
                                         <?php endif; ?>
                                         <?php if (!empty(get_post_meta(get_the_ID(), 'birthday')[0])) : ?>
                                             <p class="card-text">
-                                                <span>Nascimento:</span> <?= format_date(get_post_meta(get_the_ID(), 'birthday')[0]); ?>
+                                                <span>Nascimento:</span> <?php echo format_date(get_post_meta(get_the_ID(), 'birthday')[0]); ?>
                                             </p>
                                         <?php endif; ?>
                                         <?php if (!empty(get_post_meta(get_the_ID(), 'position')[0])) : ?>
                                             <p class="card-text">
-                                                <span>Posição:</span> <?= get_post_meta(get_the_ID(), 'position')[0]; ?>
+                                                <span>Posição:</span> <?php echo get_post_meta(get_the_ID(), 'position')[0]; ?>
                                             </p>
                                         <?php endif; ?>
                                     </div>
@@ -69,7 +69,7 @@ query_posts(
                 <?php else : ?>
                     <div class="col-md-12 row">
                         <article class="texto">
-                            <p class="texto-pagina"><?= 'There is not players registered.' ?></p>
+                            <p class="texto-pagina"><?php echo 'There is not players registered.' ?></p>
                         </article>
                     </div>
                 <?php endif; ?>

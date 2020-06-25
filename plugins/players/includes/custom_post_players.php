@@ -71,11 +71,11 @@ if ((bool) esc_attr(get_option('section_settings_players')) === true) {
     {
         $players = get_post_meta($post->ID);
 ?>
-        <link rel="stylesheet" type="text/css" href="<?= bloginfo("template_directory") . '/plugins/players/css/form_players.css' ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/plugins/players/css/form_players.css' ?>">
 
         <?php if ($_SESSION['my_admin_errors_players']) : ?>
             <div class="error">
-                <p><?= $_SESSION['my_admin_errors_players'] ?></p>
+                <p><?php echo $_SESSION['my_admin_errors_players'] ?></p>
                 <?php unset($_SESSION['my_admin_errors_players']); ?>
             </div>
         <?php endif; ?>
@@ -83,33 +83,33 @@ if ((bool) esc_attr(get_option('section_settings_players')) === true) {
             <form method="post">
                 <fieldset>
                     <div class="row form-box">
-                        <label class="wp-form-label" for="name"><?= __('Name:') ?></label>
-                        <input class="wp-form-field" name="name" id="name" type="text" value="<?= $players['name'][0] ?>" required />
+                        <label class="wp-form-label" for="name"><?php echo __('Name:') ?></label>
+                        <input class="wp-form-field" name="name" id="name" type="text" value="<?php echo $players['name'][0] ?>" required />
                     </div>
 
                     <div class="row form-box">
-                        <label class="wp-form-label" for="full_name"><?= __('Full Name:') ?></label>
-                        <input class="wp-form-field" name="full_name" id="full_name" type="text" value="<?= $players['full_name'][0] ?>" required />
+                        <label class="wp-form-label" for="full_name"><?php echo __('Full Name:') ?></label>
+                        <input class="wp-form-field" name="full_name" id="full_name" type="text" value="<?php echo $players['full_name'][0] ?>" required />
                     </div>
 
                     <div class="row form-box">
-                        <label class="wp-form-label" for="height"><?= __('Height: (cm)') ?></label>
-                        <input class="wp-form-field" name="height" id="height" type="text" value="<?= $players['height'][0] ?>" />
+                        <label class="wp-form-label" for="height"><?php echo __('Height: (cm)') ?></label>
+                        <input class="wp-form-field" name="height" id="height" type="text" value="<?php echo $players['height'][0] ?>" />
                     </div>
 
                     <div class="row form-box">
-                        <label class="wp-form-label" for="weight"><?= __('Weight: (kg)') ?></label>
-                        <input class="wp-form-field" name="weight" id="weight" type="text" value="<?= $players['weight'][0] ?>" />
+                        <label class="wp-form-label" for="weight"><?php echo __('Weight: (kg)') ?></label>
+                        <input class="wp-form-field" name="weight" id="weight" type="text" value="<?php echo $players['weight'][0] ?>" />
                     </div>
 
                     <div class="row form-box">
-                        <label class="wp-form-label" for="function"><?= __('Function:') ?></label>
-                        <input class="wp-form-field" name="function" id="function" type="text" value="<?= $players['function'][0] ?>" />
+                        <label class="wp-form-label" for="function"><?php echo __('Function:') ?></label>
+                        <input class="wp-form-field" name="function" id="function" type="text" value="<?php echo $players['function'][0] ?>" />
                     </div>
 
                     <div class="row form-box">
-                        <label class="wp-form-label" for="birthday"><?= __('Birthday:') ?></label>
-                        <input class="wp-form-field" name="birthday" id="birthday" type="date" value="<?= $players['birthday'][0] ?>" />
+                        <label class="wp-form-label" for="birthday"><?php echo __('Birthday:') ?></label>
+                        <input class="wp-form-field" name="birthday" id="birthday" type="date" value="<?php echo $players['birthday'][0] ?>" />
                     </div>
                 </fieldset>
             </form>

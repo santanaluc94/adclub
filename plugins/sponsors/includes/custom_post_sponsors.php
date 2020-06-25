@@ -73,7 +73,7 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
 ?>
         <?php if ($_SESSION['my_admin_errors_sponsors']) : ?>
             <div class="error">
-                <p><?= $_SESSION['my_admin_errors_sponsors'] ?></p>
+                <p><?php echo $_SESSION['my_admin_errors_sponsors'] ?></p>
                 <?php unset($_SESSION['my_admin_errors_sponsors']); ?>
             </div>
         <?php endif; ?>
@@ -81,8 +81,8 @@ if ((bool) esc_attr(get_option('section_settings_sponsors')) === true) {
         <form method="post">
             <fieldset>
                 <div class="row form-box">
-                    <label class="form-lab" for="site"><?= __('Site') ?>:</label>
-                    <input class="form-sidebar" name="site" id="site" type="text" value="<?= $sponsor['site'][0] ?>" required />
+                    <label class="form-lab" for="site"><?php echo __('Site') ?>:</label>
+                    <input class="form-sidebar" name="site" id="site" type="text" value="<?php echo $sponsor['site'][0] ?>" required />
                 </div>
             </fieldset>
         </form>

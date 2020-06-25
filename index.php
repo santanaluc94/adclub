@@ -35,7 +35,7 @@ $post_games = [
                 <div id="carousel-slide" class="carousel slide" style="z-index: 0;">
                     <ol class="carousel-indicators">
                         <?php while ($contador_indicador < 3) : ?>
-                            <li data-target="#carousel-slide" data-slide-to="<?= $contador_indicador++; ?>" class="<?php if ($contador_indicador === 1) echo 'active'; ?>"></li>
+                            <li data-target="#carousel-slide" data-slide-to="<?php echo $contador_indicador++; ?>" class="<?php if ($contador_indicador === 1) echo 'active'; ?>"></li>
                         <?php endwhile; ?>
                     </ol>
                     <div class="carousel-inner">
@@ -44,7 +44,7 @@ $post_games = [
                             <div class="carousel-item<?php $contador_carrossel++ ?> <?php if ($contador_carrossel === 1) echo ' active'; ?>">
                                 <?php the_post_thumbnail('post_thumbnail', ['id' => 'carousel-img', 'class' => 'carousel-img', 'alt' => 'First Slide']); ?>
                                 <div class="carousel-caption">
-                                    <a class="link-carrossel" href="<?= get_permalink(); ?>">
+                                    <a class="link-carrossel" href="<?php echo get_permalink(); ?>">
                                         <div class="noticia_carrosel">
                                             <h3><?php the_title(); ?></h3>
                                             <span class="d-none d-md-block"><?php the_excerpt(); ?></span>
@@ -78,7 +78,7 @@ $post_games = [
         <article class="sub-texto">
             <div class="row titulo-site">
                 <h1>
-                    <span class="titulo-pagina"><?= __('Games') ?></span>
+                    <span class="titulo-pagina"><?php echo __('Games') ?></span>
                 </h1>
             </div>
             <div class="col-md-12">
@@ -103,30 +103,30 @@ $post_games = [
                             <div class="col-md-5 card">
                                 <div class="card-header">
                                     <div class="game-title-header">
-                                        <?= $games_indication[$qtd_game] ?>
+                                        <?php echo $games_indication[$qtd_game] ?>
                                     </div>
                                     <div class="d-flex">
                                         <div class="placar">
                                             <?php if ($club_name == $home_club) : ?>
-                                                <img class="escudo" src="<?= bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
+                                                <img class="escudo" src="<?php echo bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
                                             <?php else : ?>
                                                 <?php the_post_thumbnail('thumbnail', ['class' => 'escudo']) ?>
                                             <?php endif; ?>
-                                            <span class="texto-card"><?= substr($home_club, 0, 3); ?></span>
-                                            <span class="texto-card-info"><?= $stadium; ?></span>
+                                            <span class="texto-card"><?php echo substr($home_club, 0, 3); ?></span>
+                                            <span class="texto-card-info"><?php echo $stadium; ?></span>
                                         </div>
                                         <div class="placar">
-                                            <span class="texto-card-placar"><?= $home_score ?> x <?= $guest_score; ?></span>
+                                            <span class="texto-card-placar"><?php echo $home_score ?> x <?php echo $guest_score; ?></span>
                                         </div>
                                         <div class="placar">
                                             <?php if ($club_name == $guest_club) : ?>
-                                                <img class="escudo" src="<?= bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
+                                                <img class="escudo" src="<?php echo bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
                                             <?php else : ?>
                                                 <?php the_post_thumbnail('thumbnail', ['class' => 'escudo']) ?>
                                             <?php endif; ?>
-                                            <span class="texto-card"><?= substr($guest_club, 0, 3); ?></span>
+                                            <span class="texto-card"><?php echo substr($guest_club, 0, 3); ?></span>
                                             <span class="texto-card-info">
-                                                <?= format_date($date); ?> <?= $hour ?>
+                                                <?php echo format_date($date); ?> <?php echo $hour ?>
                                             </span>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@ $post_games = [
                     </div>
                 <?php else : ?>
                     <article class="texto">
-                        <p><?= __('The club does not have games.'); ?></p>
+                        <p><?php echo __('The club does not have games.'); ?></p>
                     </article>
                     <?php wp_reset_query(); ?>
                 <?php endif; ?>
@@ -167,10 +167,10 @@ $post_games = [
                                     <?php $query->the_post(); ?>
 
                                     <div class="noticia col-md-4">
-                                        <a class="texto-noticia" href="<?= get_permalink(); ?>">
+                                        <a class="texto-noticia" href="<?php echo get_permalink(); ?>">
                                             <?php the_post_thumbnail('post_thumbnail', ['class' => 'img-noticias']); ?>
                                             <div class="chamada-noticia">
-                                                <span><?= the_title() ?></span>
+                                                <span><?php echo the_title() ?></span>
                                             </div>
                                         </a>
                                     </div>

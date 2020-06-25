@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2020-06-14 22:44-0300\n"
-"PO-Revision-Date: 2020-06-14 22:47-0300\n"
+"Project-Id-Version: Meu Clube 1.0.0\n"
+"POT-Creation-Date: 2020-06-25 19:47-0300\n"
+"PO-Revision-Date: 2020-06-25 20:01-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: en_US\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,6 +13,383 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
 
+#: footer.php:16 plugins/sponsors/includes/custom_post_sponsors.php:19
+msgid "Sponsor"
+msgstr "Patrocinador"
+
+#: footer.php:20 plugins/sponsors/includes/custom_post_sponsors.php:18
+msgid "Sponsors"
+msgstr "Patrocinadores"
+
+#: footer.php:24
+msgid "No Sponsor"
+msgstr "Sem Patrocinadores"
+
+#: footer.php:39
+msgid "We do not have sponsors at the moment."
+msgstr "Nós estamos sem patrocinadores no momento."
+
+#: functions.php:50
+msgid "Notices"
+msgstr "Notícias"
+
+#: functions.php:58
+msgid "Highlights"
+msgstr "Destaques"
+
+#: index.php:81 plugins/games/includes/custom_post_games.php:16
+msgid "Games"
+msgstr "Partidas"
+
+#: index.php:140
+msgid "The club does not have games."
+msgstr "O clube não tem partidas."
+
+#: page-championships.php:38
+msgid "There is no championships registered."
+msgstr "Não existe campeonatos cadastrados."
+
+#: page-games.php:89
+msgid "There is no games registered."
+msgstr "Não existe partidas cadastradas."
+
+#: plugins/games/includes/custom_post_games.php:17
+msgid "Game"
+msgstr "Partida"
+
+#: plugins/games/includes/custom_post_games.php:18
+msgid "Add Game"
+msgstr "Adicionar Partida."
+
+#: plugins/games/includes/custom_post_games.php:19
+msgid "Add new Game"
+msgstr "Adicionar nova Partida."
+
+#: plugins/games/includes/custom_post_games.php:20
+msgid "Edit Game"
+msgstr "Editar Partida"
+
+#: plugins/games/includes/custom_post_games.php:21
+msgid "All Games"
+msgstr "Todas as Partidas"
+
+#: plugins/games/includes/custom_post_games.php:22
+msgid "View Game"
+msgstr "Visualizar Partidas"
+
+#: plugins/games/includes/custom_post_games.php:23
+msgid "Search Game"
+msgstr "Buscar Partida"
+
+#: plugins/games/includes/custom_post_games.php:49
+msgid "Games Information"
+msgstr "Informações das Partidas"
+
+#: plugins/games/includes/custom_post_games.php:93
+msgid "Date"
+msgstr "Data"
+
+#: plugins/games/includes/custom_post_games.php:99
+msgid "Hour"
+msgstr "Hora"
+
+#: plugins/games/includes/custom_post_games.php:105
+msgid "Stadium"
+msgstr "Estádio"
+
+#: plugins/games/includes/custom_post_games.php:115
+#: plugins/games/includes/custom_post_games.php:129
+msgid "Home Club"
+msgstr "Mandante"
+
+#: plugins/games/includes/custom_post_games.php:121
+#: plugins/games/includes/custom_post_games.php:137
+msgid "Guest Club"
+msgstr "Visitante"
+
+#: plugins/games/includes/custom_post_games.php:205
+#: plugins/games/includes/custom_post_games.php:217
+msgid "The score can not be a negative number."
+msgstr "O  valor do placar não pode ser um número negativo."
+
+#: plugins/games/includes/custom_post_games.php:208
+#: plugins/games/includes/custom_post_games.php:220
+msgid "The score must be a number."
+msgstr "O valor do placar deve ser um número."
+
+#: plugins/games/includes/custom_post_games.php:228
+msgid "The date is invalid."
+msgstr "A data não é válida."
+
+#: plugins/games/includes/custom_post_games.php:231
+msgid "The date is required field."
+msgstr "A data é um campo obrigatório."
+
+#: plugins/games/includes/custom_post_games.php:288
+msgid "Championship"
+msgstr "Campeonato"
+
+#: plugins/games/includes/custom_post_games.php:289
+msgid "Championships"
+msgstr "Campeonatos"
+
+#: plugins/games/includes/custom_post_games.php:298
+msgid "Add"
+msgstr "Adicionar"
+
+#: plugins/games/includes/custom_post_games.php:338
+#: plugins/games/includes/custom_post_games.php:375
+msgid "Championship Year"
+msgstr "Ano do Campeonato"
+
+#: plugins/games/includes/custom_post_games.php:346
+#: plugins/games/includes/custom_post_games.php:385
+msgid "Year the championship will be shown."
+msgstr "Ano em que o Campeonato será exibido."
+
+#: plugins/my_club.php:18
+msgid "My Club Settings"
+msgstr "Configurações do Meu Clube"
+
+#: plugins/my_club.php:19 plugins/my_club.php:42
 msgid "My Club"
 msgstr "Meu Clube"
+
+#: plugins/my_club.php:49
+msgid "Club Settings"
+msgstr "Configurações do Clube"
+
+#: plugins/my_club.php:50
+msgid "Set name, logo, stadium and colors of your club."
+msgstr "Defina nome, logo, estádio e cores do clube."
+
+#: plugins/my_club.php:53
+msgid "Club Name"
+msgstr "Nome do Clube"
+
+#: plugins/my_club.php:59
+msgid "Club Abbreviation"
+msgstr "Sigla do Clube"
+
+#: plugins/my_club.php:65
+msgid "Stadium Name"
+msgstr "Nome do Estádio"
+
+#: plugins/my_club.php:71
+msgid "First Color"
+msgstr "Primeira Cor"
+
+#: plugins/my_club.php:77
+msgid "Second Color"
+msgstr "Segunda Cor"
+
+#: plugins/my_club.php:83
+msgid "Third Color"
+msgstr "Terceira Cor"
+
+#: plugins/my_club.php:90
+msgid "Social Medias"
+msgstr "Redes Sociais"
+
+#: plugins/my_club.php:91
+msgid "Set social medias of your club."
+msgstr "Defina as Redes Sociais do seu clube"
+
+#: plugins/my_club.php:94
+msgid "Store"
+msgstr "Loja"
+
+#: plugins/my_club.php:100
+msgid "Facebook"
+msgstr "Facebook"
+
+#: plugins/my_club.php:106
+msgid "Twitter"
+msgstr "Twitter"
+
+#: plugins/my_club.php:112
+msgid "Instagram"
+msgstr "Instagram"
+
+#: plugins/my_club.php:118
+msgid "Youtube"
+msgstr "Youtube"
+
+#: plugins/my_club.php:125
+msgid "Footer"
+msgstr "Rodapé"
+
+#: plugins/my_club.php:126
+msgid "Set the text in footter areas."
+msgstr "Defina o texto nas áreas do rodapé."
+
+#: plugins/my_club.php:129
+msgid "About CLub"
+msgstr "Sobre o Clube"
+
+#: plugins/my_club.php:132
+msgid "Insira o texto que irá no campo Sobre o Clube do rodapé."
+msgstr "Insira o texto que irá no campo Sobre o Clube do rodapé."
+
+#: plugins/my_club.php:134 plugins/my_club.php:140 plugins/my_club.php:144
+msgid "Limite máximo de 300 caracteres."
+msgstr "Limite máximo de 300 caracteres."
+
+#: plugins/my_club.php:138
+msgid "Contacts"
+msgstr "Contatos"
+
+#: plugins/my_club.php:142
+msgid "Insira o texto que irá no campo Entre em Contato do rodapé."
+msgstr "Insira o texto que irá no campo Entre em Contato do rodapé."
+
+#: plugins/my_club.php:149
+msgid "General settings"
+msgstr "Configurações Gerais"
+
+#: plugins/my_club.php:150
+msgid "Set the general settings to your theme."
+msgstr "Defina as configurações gerais do seu tema."
+
+#: plugins/my_club.php:153
+msgid "Enalbe Sponsors"
+msgstr "Habilitar Patrocinadores"
+
+#: plugins/my_club.php:156 plugins/my_club.php:165 plugins/my_club.php:174
+msgid "Yes"
+msgstr "Sim"
+
+#: plugins/my_club.php:157 plugins/my_club.php:166 plugins/my_club.php:175
+msgid "No"
+msgstr "Não"
+
+#: plugins/my_club.php:162
+msgid "Enable Players"
+msgstr "Habilitar Atletas"
+
+#: plugins/my_club.php:171
+msgid "Enable Games"
+msgstr "Habilitar Partidas"
+
+#: plugins/players/includes/custom_post_players.php:17
+#: plugins/players/includes/custom_post_players.php:193
+msgid "Players"
+msgstr "Atletas"
+
+#: plugins/players/includes/custom_post_players.php:18
+msgid "Player"
+msgstr "Atleta"
+
+#: plugins/players/includes/custom_post_players.php:19
+msgid "Add Player"
+msgstr "Adicionar Atleta"
+
+#: plugins/players/includes/custom_post_players.php:20
+msgid "Add new Player"
+msgstr "Adicionar novo Atleta"
+
+#: plugins/players/includes/custom_post_players.php:21
+msgid "Edit Player"
+msgstr "Editar Atleta"
+
+#: plugins/players/includes/custom_post_players.php:22
+msgid "All Players"
+msgstr "Todos os Atletas"
+
+#: plugins/players/includes/custom_post_players.php:23
+msgid "View Player"
+msgstr "Visualizar Atleta"
+
+#: plugins/players/includes/custom_post_players.php:24
+msgid "Search Player"
+msgstr "Buscar Atleta"
+
+#: plugins/players/includes/custom_post_players.php:50
+msgid "Players Information"
+msgstr "Informações do Atleta"
+
+#: plugins/players/includes/custom_post_players.php:86
+msgid "Name:"
+msgstr "Nome:"
+
+#: plugins/players/includes/custom_post_players.php:91
+msgid "Full Name:"
+msgstr "Nome Completo:"
+
+#: plugins/players/includes/custom_post_players.php:96
+msgid "Height: (cm)"
+msgstr "Altura: (cm)"
+
+#: plugins/players/includes/custom_post_players.php:101
+msgid "Weight: (kg)"
+msgstr "Peso: (kg)"
+
+#: plugins/players/includes/custom_post_players.php:106
+msgid "Function:"
+msgstr "Função:"
+
+#: plugins/players/includes/custom_post_players.php:111
+msgid "Birthday:"
+msgstr "Data de aniversário:"
+
+#: plugins/players/includes/custom_post_players.php:137
+msgid "Name can not be empty."
+msgstr "O nome não pode ser vazio."
+
+#: plugins/players/includes/custom_post_players.php:149
+msgid "Height must be in centimeter, check value."
+msgstr "Altura deve ser um valor em centímetro, verifique o valor inserido."
+
+#: plugins/players/includes/custom_post_players.php:157
+msgid "Weight must be in kilograms, check value."
+msgstr "Peso deve ser um valor em quilogramas, verifique o valor inserido."
+
+#: plugins/players/includes/custom_post_players.php:169
+msgid "Birthday can not be greater than today."
+msgstr "A data de nascimento não pode ser mais que hoje."
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:20
+msgid "Add Sponsor"
+msgstr "Adicionar Patrocinador"
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:21
+msgid "Add new Sponsor"
+msgstr "Adicionar novo Patrocinador"
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:22
+msgid "Edit Sponsor"
+msgstr "Editar Patrocinador"
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:23
+msgid "All Sponsors"
+msgstr "Todos os Patrocinadores"
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:24
+msgid "View Sponsor"
+msgstr "Visualizar Patrocinador"
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:25
+msgid "Search Sponsor"
+msgstr "Buscar Patrocinador"
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:51
+msgid "Sponsors Information"
+msgstr "Informações do Patrocinador"
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:84
+msgid "Site"
+msgstr "Site"
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:109
+msgid "Sponsor must have a title."
+msgstr "Patrocinador deve ter um título (nome)."
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:117
+msgid "The field Site must be an URL."
+msgstr "O campo site deve ser uma URL válida."
+
+#: plugins/sponsors/includes/custom_post_sponsors.php:123
+msgid "Sponsor must have a featured image."
+msgstr "Patrocinador deve ter uma imagem destacada."

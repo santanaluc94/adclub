@@ -39,140 +39,140 @@ function create_my_club_configurations()
 {
 ?>
     <div>
-        <h1><?= __('My Club') ?></h1>
+        <h1><?php echo __('My Club') ?></h1>
     </div>
 
     <form method="post" action="options.php">
         <?php do_settings_sections('my_club') ?>
 
         <?php settings_fields('group_admin_settings') ?>
-        <h2><?= __('Club Settings') ?></h2>
-        <p><?= __('Set name, logo, stadium and colors of your club.') ?></p>
+        <h2><?php echo __('Club Settings') ?></h2>
+        <p><?php echo __('Set name, logo, stadium and colors of your club.') ?></p>
         <table class="form-table">
             <tr valign="top">
-                <th scope="row"><?= __('Club Name') ?></th>
+                <th scope="row"><?php echo __('Club Name') ?></th>
                 <td>
-                    <input type="text" id="section_club_name" name="section_club_name" style="width: 40%;" value="<?= esc_attr(get_option('section_club_name')) ?>" required />
+                    <input type="text" id="section_club_name" name="section_club_name" style="width: 40%;" value="<?php echo esc_attr(get_option('section_club_name')) ?>" required />
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Club Abbreviation') ?></th>
+                <th scope="row"><?php echo __('Club Abbreviation') ?></th>
                 <td>
-                    <input type="text" id="section_club_abbreviation" name="section_club_abbreviation" style="width: 40%;" value="<?= esc_attr(get_option('section_club_abbreviation')) ?>" maxlength="3" required />
+                    <input type="text" id="section_club_abbreviation" name="section_club_abbreviation" style="width: 40%;" value="<?php echo esc_attr(get_option('section_club_abbreviation')) ?>" maxlength="3" required />
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Stadium Name') ?></th>
+                <th scope="row"><?php echo __('Stadium Name') ?></th>
                 <td>
-                    <input type="text" id="section_club_stadium" name="section_club_stadium" style="width: 40%;" value="<?= esc_attr(get_option('section_club_stadium')) ?>" />
+                    <input type="text" id="section_club_stadium" name="section_club_stadium" style="width: 40%;" value="<?php echo esc_attr(get_option('section_club_stadium')) ?>" />
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('First Color') ?></th>
+                <th scope="row"><?php echo __('First Color') ?></th>
                 <td>
-                    <input type="color" id="section_club_first" name="section_club_first" value="<?= esc_attr(get_option('section_club_first')) ?: '#c70039' ?>" />
+                    <input type="color" id="section_club_first" name="section_club_first" value="<?php echo esc_attr(get_option('section_club_first')) ?: '#c70039' ?>" />
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Second Color') ?></th>
+                <th scope="row"><?php echo __('Second Color') ?></th>
                 <td>
-                    <input type="color" id="section_club_second" name="section_club_second" value="<?= esc_attr(get_option('section_club_second')) ?: '#FFC300' ?>" />
+                    <input type="color" id="section_club_second" name="section_club_second" value="<?php echo esc_attr(get_option('section_club_second')) ?: '#FFC300' ?>" />
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Third Color') ?></th>
+                <th scope="row"><?php echo __('Third Color') ?></th>
                 <td>
-                    <input type="color" id="section_club_third" name="section_club_third" value="<?= esc_attr(get_option('section_club_third')) ?: '#FFFFFF' ?>" />
+                    <input type="color" id="section_club_third" name="section_club_third" value="<?php echo esc_attr(get_option('section_club_third')) ?: '#FFFFFF' ?>" />
                 </td>
             </tr>
         </table>
 
-        <h2><?= __('Social Medias') ?></h2>
-        <p><?= __('Set social medias of your club.') ?></p>
+        <h2><?php echo __('Social Medias') ?></h2>
+        <p><?php echo __('Set social medias of your club.') ?></p>
         <table class="form-table">
             <tr valign="top">
-                <th scope="row"><?= __('Store') ?></th>
+                <th scope="row"><?php echo __('Store') ?></th>
                 <td>
-                    <input type="text" id="section_social_medias_store" name="section_social_medias_store" style="width: 40%;" value="<?= esc_attr(get_option('section_social_medias_store')) ?>" />
+                    <input type="text" id="section_social_medias_store" name="section_social_medias_store" style="width: 40%;" value="<?php echo esc_attr(get_option('section_social_medias_store')) ?>" />
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Facebook') ?></th>
+                <th scope="row"><?php echo __('Facebook') ?></th>
                 <td>
-                    <input type="text" id="section_social_medias_facebook" name="section_social_medias_facebook" style="width: 40%;" value="<?= esc_attr(get_option('section_social_medias_facebook')) ?>" />
+                    <input type="text" id="section_social_medias_facebook" name="section_social_medias_facebook" style="width: 40%;" value="<?php echo esc_attr(get_option('section_social_medias_facebook')) ?>" />
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Twitter') ?></th>
+                <th scope="row"><?php echo __('Twitter') ?></th>
                 <td>
-                    <input type="text" id="section_social_medias_twitter" name="section_social_medias_twitter" style="width: 40%;" value="<?= esc_attr(get_option('section_social_medias_twitter')) ?>" />
+                    <input type="text" id="section_social_medias_twitter" name="section_social_medias_twitter" style="width: 40%;" value="<?php echo esc_attr(get_option('section_social_medias_twitter')) ?>" />
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Instagram') ?></th>
+                <th scope="row"><?php echo __('Instagram') ?></th>
                 <td>
-                    <input type="text" id="section_social_medias_instagram" name="section_social_medias_instagram" style="width: 40%;" value="<?= esc_attr(get_option('section_social_medias_instagram')) ?>" />
+                    <input type="text" id="section_social_medias_instagram" name="section_social_medias_instagram" style="width: 40%;" value="<?php echo esc_attr(get_option('section_social_medias_instagram')) ?>" />
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Youtube') ?></th>
+                <th scope="row"><?php echo __('Youtube') ?></th>
                 <td>
-                    <input type="text" id="section_social_medias_youtube" name="section_social_medias_youtube" style="width: 40%;" value="<?= esc_attr(get_option('section_social_medias_youtube')) ?>" />
+                    <input type="text" id="section_social_medias_youtube" name="section_social_medias_youtube" style="width: 40%;" value="<?php echo esc_attr(get_option('section_social_medias_youtube')) ?>" />
                 </td>
             </tr>
         </table>
 
-        <h2><?= __('Footer') ?></h2>
-        <p><?= __('Set the text in footter areas.') ?></p>
+        <h2><?php echo __('Footer') ?></h2>
+        <p><?php echo __('Set the text in footter areas.') ?></p>
         <table class="form-table">
             <tr valign="top">
-                <th scope="row"><?= __('About CLub') ?></th>
+                <th scope="row"><?php echo __('About CLub') ?></th>
                 <td>
                     <textarea type="text" id="section_footer_about" name="section_footer_about" style="width:40%; height:100px;" maxlength="300" value="">
-                        <?= esc_attr(get_option('section_footer_about')) ?: __('Insira o texto que irá no campo Sobre o Clube do rodapé.') ?>
+                        <?php echo esc_attr(get_option('section_footer_about')) ?: __('Insira o texto que irá no campo Sobre o Clube do rodapé.') ?>
                     </textarea>
-                    <p><?= __('Limite máximo de 300 caracteres.') ?></p>
+                    <p><?php echo __('Limite máximo de 300 caracteres.') ?></p>
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Contacts') ?></th>
+                <th scope="row"><?php echo __('Contacts') ?></th>
                 <td>
-                    <p><?= __('Limite máximo de 300 caracteres.') ?></p>
+                    <p><?php echo __('Limite máximo de 300 caracteres.') ?></p>
                     <textarea type="text" id="section_footer_contact" name="section_footer_contact" style="width:40%; height:100px;" maxlength="300" value="">
-                        <?= esc_attr(get_option('section_footer_contact')) ?: __('Insira o texto que irá no campo Entre em Contato do rodapé.') ?>
+                        <?php echo esc_attr(get_option('section_footer_contact')) ?: __('Insira o texto que irá no campo Entre em Contato do rodapé.') ?>
                     </textarea>
-                    <p><?= __('Limite máximo de 300 caracteres.') ?></p>
+                    <p><?php echo __('Limite máximo de 300 caracteres.') ?></p>
                 </td>
             </tr>
         </table>
 
-        <h2><?= __('General settings') ?></h2>
-        <p><?= __('Set the general settings to your theme.') ?></p>
+        <h2><?php echo __('General settings') ?></h2>
+        <p><?php echo __('Set the general settings to your theme.') ?></p>
         <table class="form-table">
             <tr valign="top">
-                <th scope="row"><?= __('Enalbe Sponsors') ?></th>
+                <th scope="row"><?php echo __('Enalbe Sponsors') ?></th>
                 <td>
                     <select id="section_settings_sponsors" name="section_settings_sponsors">
-                        <option <?= esc_attr(get_option('section_settings_sponsors')) === '1' ? 'selected' : '' ?> value="1"><?= __('Yes') ?></option>
-                        <option <?= esc_attr(get_option('section_settings_sponsors')) === '0' ? 'selected' : '' ?> value="0"><?= __('No') ?></option>
+                        <option <?php echo esc_attr(get_option('section_settings_sponsors')) === '1' ? 'selected' : '' ?> value="1"><?php echo __('Yes') ?></option>
+                        <option <?php echo esc_attr(get_option('section_settings_sponsors')) === '0' ? 'selected' : '' ?> value="0"><?php echo __('No') ?></option>
                     </select>
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Enable Players') ?></th>
+                <th scope="row"><?php echo __('Enable Players') ?></th>
                 <td>
                     <select id="section_settings_players" name="section_settings_players">
-                        <option <?= esc_attr(get_option('section_settings_players')) === '1' ? 'selected' : '' ?> value="1"><?= __('Yes') ?></option>
-                        <option <?= esc_attr(get_option('section_settings_players')) === '0' ? 'selected' : '' ?> value="0"><?= __('No') ?></option>
+                        <option <?php echo esc_attr(get_option('section_settings_players')) === '1' ? 'selected' : '' ?> value="1"><?php echo __('Yes') ?></option>
+                        <option <?php echo esc_attr(get_option('section_settings_players')) === '0' ? 'selected' : '' ?> value="0"><?php echo __('No') ?></option>
                     </select>
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?= __('Enable Games') ?></th>
+                <th scope="row"><?php echo __('Enable Games') ?></th>
                 <td>
                     <select id="section_settings_games" name="section_settings_games">
-                        <option <?= esc_attr(get_option('section_settings_games')) === '1' ? 'selected' : '' ?> value="1"><?= __('Yes') ?></option>
-                        <option <?= esc_attr(get_option('section_settings_games')) === '0' ? 'selected' : '' ?> value="0"><?= __('No') ?></option>
+                        <option <?php echo esc_attr(get_option('section_settings_games')) === '1' ? 'selected' : '' ?> value="1"><?php echo __('Yes') ?></option>
+                        <option <?php echo esc_attr(get_option('section_settings_games')) === '0' ? 'selected' : '' ?> value="0"><?php echo __('No') ?></option>
                     </select>
                 </td>
             </tr>

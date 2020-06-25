@@ -14,28 +14,28 @@ $taxonomy = get_taxonomy('championships');
     <section class="inicio-secao">
         <div class="row titulo-site">
             <h1>
-                <span class="titulo-pagina"><?= $taxonomy->name ?></span>
+                <span class="titulo-pagina"><?php echo $taxonomy->name ?></span>
             </h1>
         </div>
         <?php if (!empty($championships)) : ?>
             <?php foreach ($championships as $championship) : ?>
                 <?php if (date('Y') === (get_option('taxonomy_' . $championship->term_id)['year'])) : ?>
-                <article class="texto">
-                    <div class="conteudo-campeonato">
-                        <h2 class="titulo-campeonato">
-                            <?= $championship->name ?>
-                        </h2>
-                        <div class="sobre-campeonato">
-                            <?php if (!empty($championship->description)) : ?>
-                                <?= $championship->description ?>
-                            <?php endif; ?>
+                    <article class="texto">
+                        <div class="conteudo-campeonato">
+                            <h2 class="titulo-campeonato">
+                                <?php echo $championship->name ?>
+                            </h2>
+                            <div class="sobre-campeonato">
+                                <?php if (!empty($championship->description)) : ?>
+                                    <?php echo $championship->description ?>
+                                <?php endif; ?>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
                 <?php endif; ?>
             <?php endforeach; ?>
         <?php else : ?>
-            <?= __('There is no championships registered.') ?>
+            <?php echo __('There is no championships registered.') ?>
         <?php endif; ?>
         <?php wp_reset_query(); ?>
     </section>

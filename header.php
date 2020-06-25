@@ -12,14 +12,14 @@ $third_color = esc_attr(get_option('section_club_third'));
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo("template_directory") . '/css/reset.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo("template_directory") . '/css/header.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo("template_directory") . '/style.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo("template_directory") . '/css/index.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo("template_directory") . '/css/single.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo("template_directory") . '/css/atletas.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo("template_directory") . '/css/campeonatos.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo("template_directory") . '/css/partidas.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/css/reset.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/css/header.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/style.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/css/index.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/css/single.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/css/atletas.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/css/campeonatos.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo("template_directory") . '/css/partidas.css' ?>">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -33,17 +33,17 @@ $third_color = esc_attr(get_option('section_club_third'));
 
     <style type="text/css">
         :root {
-            --main-color: <?= $first_color ?>;
-            --second-color: <?= $second_color ?>;
-            --third-color: <?= $third_color ?>;
+            --main-color: <?php echo $first_color ?>;
+            --second-color: <?php echo $second_color ?>;
+            --third-color: <?php echo $third_color ?>;
         }
     </style>
 
     <title>
         <?php if (!empty(esc_attr(get_option('section_club_name')))) : ?>
-            <?= esc_attr(get_option('section_club_name')) ?>
+            <?php echo esc_attr(get_option('section_club_name')) ?>
         <?php else : ?>
-            <?= get_bloginfo('name') ?>
+            <?php echo get_bloginfo('name') ?>
         <?php endif; ?>
     </title>
 </head>
@@ -56,8 +56,8 @@ $third_color = esc_attr(get_option('section_club_third'));
                 <?php if (has_custom_logo()) : ?>
                     <?php the_custom_logo() ?>
                 <?php else : ?>
-                    <a class="logo" href="<?= site_url() ?>">
-                        <img class="logo-menu" src="<?= bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
+                    <a class="logo" href="<?php echo site_url() ?>">
+                        <img class="logo-menu" src="<?php echo bloginfo("template_directory") . '/img/adc-logo.png' ?>" />
                     </a>
                 <?php endif; ?>
 
@@ -65,9 +65,9 @@ $third_color = esc_attr(get_option('section_club_third'));
                     <!-- Nome do Clube -->
                     <h2 class="titulo">
                         <?php if (!empty(esc_attr(get_option('section_club_name')))) : ?>
-                            <?= esc_attr(get_option('section_club_name')) ?>
+                            <?php echo esc_attr(get_option('section_club_name')) ?>
                         <?php else : ?>
-                            <?= get_bloginfo('name') ?>
+                            <?php echo get_bloginfo('name') ?>
                         <?php endif; ?>
                     </h2>
                     <h3 class="titulo">Site Oficial</h3>
@@ -77,31 +77,31 @@ $third_color = esc_attr(get_option('section_club_third'));
                     <ul class="midias-sociais-superior">
                         <?php if (!empty(esc_attr(get_option('section_social_medias_store')))) : ?>
                             <li class="list-inline-item">
-                                <a href="<?= esc_attr(get_option('section_social_medias_store')) ?>" class="fa-superior fa fa-shopping-cart" target="__blank"></a>
+                                <a href="<?php echo esc_attr(get_option('section_social_medias_store')) ?>" class="fa-superior fa fa-shopping-cart" target="__blank"></a>
                             </li>
                         <?php endif; ?>
 
                         <?php if (!empty(esc_attr(get_option('section_social_medias_facebook')))) : ?>
                             <li class="list-inline-item">
-                                <a href="<?= esc_attr(get_option('section_social_medias_facebook')) ?>" class="fa-superior fa fa-facebook-f" target="__blank"></a>
+                                <a href="<?php echo esc_attr(get_option('section_social_medias_facebook')) ?>" class="fa-superior fa fa-facebook-f" target="__blank"></a>
                             </li>
                         <?php endif; ?>
 
                         <?php if (!empty(esc_attr(get_option('section_social_medias_twitter')))) : ?>
                             <li class="list-inline-item">
-                                <a href="<?= esc_attr(get_option('section_social_medias_twitter')) ?>" class="fa-superior fa fa-twitter" target="__blank"></a>
+                                <a href="<?php echo esc_attr(get_option('section_social_medias_twitter')) ?>" class="fa-superior fa fa-twitter" target="__blank"></a>
                             </li>
                         <?php endif; ?>
 
                         <?php if (!empty(esc_attr(get_option('section_social_medias_instagram')))) : ?>
                             <li class="list-inline-item">
-                                <a href="<?= esc_attr(get_option('section_social_medias_instagram')) ?>" class="fa-superior fa fa-instagram" target="__blank"></a>
+                                <a href="<?php echo esc_attr(get_option('section_social_medias_instagram')) ?>" class="fa-superior fa fa-instagram" target="__blank"></a>
                             </li>
                         <?php endif; ?>
 
                         <?php if (!empty(esc_attr(get_option('section_social_medias_youtube')))) : ?>
                             <li class="list-inline-item">
-                                <a href="<?= esc_attr(get_option('section_social_medias_youtube')) ?>" class="fa-superior fa fa-youtube-play" target="__blank"></a>
+                                <a href="<?php echo esc_attr(get_option('section_social_medias_youtube')) ?>" class="fa-superior fa fa-youtube-play" target="__blank"></a>
                             </li>
                         <?php endif; ?>
                     </ul>

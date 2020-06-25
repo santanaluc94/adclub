@@ -5,10 +5,11 @@ include_once __DIR__ . '/plugins/sponsors/sponsors.php';
 include_once __DIR__ . '/plugins/players/players.php';
 include_once __DIR__ . '/plugins/games/games.php';
 
-add_action( 'after_setup_theme', 'my_theme_setup' );
+add_action('after_setup_theme', 'my_theme_setup');
 
-function my_theme_setup(){
-  load_theme_textdomain( 'adclube', get_template_directory() . '/languages' );
+function my_theme_setup()
+{
+    load_theme_textdomain('adclube', get_template_directory() . '/languages');
 }
 /**
  * Enable Logo
@@ -121,36 +122,36 @@ function create_static_pages()
 {
     $html_sobre = '
         <article class="sub-texto">
-            <p class="texto-pagina"><?= __("Conteúdo sobre o Clube.") ?></p>
+            <p class="texto-pagina"><?php echo __("Conteúdo sobre o Clube.") ?></p>
         </article>';
 
     $html_extras = '
         <article class="sub-texto">
             <p class="texto-pagina">
-                <?= __("Texto extra sobre o clube.") ?>
+                <?php echo __("Texto extra sobre o clube.") ?>
             </p>
         </article>
         <article class="sub-texto">
             <div class="row titulo-site">
                 <h1>
-                    <span class="titulo-pagina"><?= __("Torcida do Clube") ?></span>
+                    <span class="titulo-pagina"><?php echo __("Torcida do Clube") ?></span>
                 </h1>
             </div>
             <p class="texto-pagina">
-                <?= __("Texto sobre a torcida do clube.") ?>
+                <?php echo __("Texto sobre a torcida do clube.") ?>
             </p>
         </article>
         <article class="sub-texto">
             <div class="row titulo-site">
                 <h1>
-                    <span class="titulo-pagina"><?= __("Hino do Clube") ?></span>
+                    <span class="titulo-pagina"><?php echo __("Hino do Clube") ?></span>
                 </h1>
             </div>
             <p class="hino">
-                <?= __("Primeira linha do hino do Clube") ?><br />
-                <?= __("Segunda linha do hino do Clube") ?><br />
-                <?= __("Terceira linha do hino do Clube") ?><br />
-                <?= __("Quarta linha do hino do Clube") ?><br />
+                <?php echo __("Primeira linha do hino do Clube") ?><br />
+                <?php echo __("Segunda linha do hino do Clube") ?><br />
+                <?php echo __("Terceira linha do hino do Clube") ?><br />
+                <?php echo __("Quarta linha do hino do Clube") ?><br />
             </p>
         </article>';
 

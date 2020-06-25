@@ -77,7 +77,7 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
         <?php if (!empty($_SESSION['my_admin_errors_games'])) : ?>
             <div class="error">
                 <?php foreach ($_SESSION['my_admin_errors_games'] as $error) : ?>
-                    <p><?= $error ?></p>
+                    <p><?php echo $error ?></p>
                     <?php unset($error); ?>
                 <?php endforeach; ?>
             </div>
@@ -85,26 +85,26 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
 
         <form method="post">
             <fieldset>
-                <input type="text" value="<?= $clube ?>" id="club_name" hidden readonly />
-                <input type="text" value="<?= $estadio ?>" id="stadium_club" hidden readonly />
+                <input type="text" value="<?php echo $clube ?>" id="club_name" hidden readonly />
+                <input type="text" value="<?php echo $estadio ?>" id="stadium_club" hidden readonly />
                 <section class="first-row">
                     <div class="box-first-row">
                         <label>
-                            <span><?= __('Date') ?></span>
+                            <span><?php echo __('Date') ?></span>
                         </label>
-                        <input type="date" name="date" id="date" value="<?= $games['date'][0] ?>" required />
+                        <input type="date" name="date" id="date" value="<?php echo $games['date'][0] ?>" required />
                     </div>
                     <div class="box-first-row">
                         <label>
-                            <span><?= __('Hour') ?></span>
+                            <span><?php echo __('Hour') ?></span>
                         </label>
-                        <input type="time" name="hour" id="hour" value="<?= $games['hour'][0] ?>" required />
+                        <input type="time" name="hour" id="hour" value="<?php echo $games['hour'][0] ?>" required />
                     </div>
                     <div class="box-first-row">
                         <label>
-                            <span><?= __('Stadium') ?></span>
+                            <span><?php echo __('Stadium') ?></span>
                         </label>
-                        <input type="text" name="stadium" id="stadium" value="<?= $games['stadium'][0] ?>" />
+                        <input type="text" name="stadium" id="stadium" value="<?php echo $games['stadium'][0] ?>" />
                     </div>
                 </section>
 
@@ -112,13 +112,13 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
                     <div class="box-second-row">
                         <input class="rad-home" type="radio" name="home_guest" id="rad-home" value="home" />
                         <label for="home">
-                            <span><?= __('Home Club') ?></span>
+                            <span><?php echo __('Home Club') ?></span>
                         </label>
                     </div>
                     <div class="box-second-row">
                         <input class="rad-guest" type="radio" name="home_guest" id="rad-guest" value="guest" />
                         <label for="guest">
-                            <span><?= __('Guest Club') ?></span>
+                            <span><?php echo __('Guest Club') ?></span>
                         </label>
                     </div>
                 </section>
@@ -126,18 +126,18 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
                 <section class="third-row">
                     <div class="box-third-row">
                         <label>
-                            <span><?= __('Home Club') ?></span>
+                            <span><?php echo __('Home Club') ?></span>
                         </label>
-                        <input type="text" class="box-club-name" name="home" id="home" value="<?= $games['home'][0] ?>" maxlength="3" required />
-                        <input type="text" class="box-score" name="score_home" id="score_home" value="<?= $games['score_home'][0] ?>" />
+                        <input type="text" class="box-club-name" name="home" id="home" value="<?php echo $games['home'][0] ?>" maxlength="3" required />
+                        <input type="text" class="box-score" name="score_home" id="score_home" value="<?php echo $games['score_home'][0] ?>" />
                         <label>
                             <span class="hide-mobile">X</span>
                         </label>
                         <label class="box-guest-mobile">
-                            <span><?= __('Guest Club') ?></span>
+                            <span><?php echo __('Guest Club') ?></span>
                         </label>
-                        <input type="text" class="box-score" name="score_guest" id="score_guest" value="<?= $games['score_guest'][0] ?>" />
-                        <input type="text" class="box-club-name" name="guest" id="guest" value="<?= $games['guest'][0] ?>" maxlength="3" />
+                        <input type="text" class="box-score" name="score_guest" id="score_guest" value="<?php echo $games['score_guest'][0] ?>" />
+                        <input type="text" class="box-club-name" name="guest" id="guest" value="<?php echo $games['guest'][0] ?>" maxlength="3" />
                     </div>
                 </section>
             </fieldset>
@@ -335,15 +335,15 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
 
     ?>
         <div class="form-field">
-            <label for="term_meta[year]"><?= __('Championship Year'); ?></label>
+            <label for="term_meta[year]"><?php echo __('Championship Year'); ?></label>
             <select name="term_meta[year]" id="term_meta[year]">
                 <?php foreach (range($latest_year, $earliest_year) as $i) : ?>
-                    <option value="<?= $i ?>" <?= $currently_selected == $i ? 'selected' : '' ?>>
-                        <?= $i ?>
+                    <option value="<?php echo $i ?>" <?php echo $currently_selected == $i ? 'selected' : '' ?>>
+                        <?php echo $i ?>
                     </option>
                 <?php endforeach; ?>
             </select>
-            <p class="description"><?= __('Year the championship will be shown.'); ?></p>
+            <p class="description"><?php echo __('Year the championship will be shown.'); ?></p>
         </div>
     <?php
     }
@@ -372,17 +372,17 @@ if ((bool) esc_attr(get_option('section_settings_games')) === true) {
     ?>
         <tr class="form-field">
             <th scope="row" valign="top">
-                <label for="term_meta[year]"><?= __('Championship Year'); ?></label>
+                <label for="term_meta[year]"><?php echo __('Championship Year'); ?></label>
             </th>
             <td>
                 <select name="term_meta[year]" id="term_meta[year]">
                     <?php foreach (range($latest_year, $earliest_year) as $i) : ?>
-                        <option value="<?= $i; ?>" <?= $i == esc_attr($term_meta['year']) ? 'selected' : '' ?>>
-                            <?= $i ?>
+                        <option value="<?php echo $i; ?>" <?php echo $i == esc_attr($term_meta['year']) ? 'selected' : '' ?>>
+                            <?php echo $i ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
-                <p class="description"><?= __('Year the championship will be shown.'); ?></p>
+                <p class="description"><?php echo __('Year the championship will be shown.'); ?></p>
             </td>
         </tr>
 <?php

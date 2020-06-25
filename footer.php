@@ -13,15 +13,15 @@
 
                 <?php if ($qtd == 1) : ?>
                     <h1>
-                        <span class="titulo-pagina"><?= __('Sponsor') ?></span>
+                        <span class="titulo-pagina"><?php echo __('Sponsor') ?></span>
                     </h1>
                 <?php elseif ($qtd >= 2) : ?>
                     <h1>
-                        <span class="titulo-pagina"><?= __('Sponsors') ?></span>
+                        <span class="titulo-pagina"><?php echo __('Sponsors') ?></span>
                     </h1>
                 <?php else : ?>
                     <h1>
-                        <span class="titulo-pagina"><?= __('No Sponsor') ?></span>
+                        <span class="titulo-pagina"><?php echo __('No Sponsor') ?></span>
                     </h1>
                 <?php endif; ?>
             </div>
@@ -29,14 +29,14 @@
             <div class="row patrocinadores">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
-                        <a href="<?= get_post_meta(get_the_ID(), 'site')[0]; ?>" target="_blank" class="link-marcas">
+                        <a href="<?php echo get_post_meta(get_the_ID(), 'site')[0]; ?>" target="_blank" class="link-marcas">
                             <?php the_post_thumbnail('thumbnail', ['class' => 'img-patrocinador']) ?>
                         </a>
                     <?php endwhile; ?>
                 <?php else : ?>
                     <div class="col-md-12 row">
                         <article class="texto">
-                            <p class="texto-pagina"><?= __('We do not have sponsors at the moment.') ?></p>
+                            <p class="texto-pagina"><?php echo __('We do not have sponsors at the moment.') ?></p>
                         </article>
                     </div>
                 <?php endif; ?>
@@ -53,7 +53,7 @@
                 <?php if (!empty(esc_attr(get_option('section_footer_about')))) : ?>
                     <div class="texto-footer">
                         <p class="mb-2">
-                            <?= esc_attr(get_option('section_footer_about')) ?>
+                            <?php echo esc_attr(get_option('section_footer_about')) ?>
                         </p>
                     </div>
                 <?php endif; ?>
@@ -62,7 +62,7 @@
             <div class="col-sm-4 col-md col-sm-4 col-12 col">
                 <h4 class="titulo-footer">Inscreva-se</h4>
                 <div class="mb-3 texto-footer">
-                    <p>Para receber todas as notícias, atualizações e promoções do <?= get_bloginfo('name') ?: 'clube' ?> cadastre seu
+                    <p>Para receber todas as notícias, atualizações e promoções do <?php echo get_bloginfo('name') ?: 'clube' ?> cadastre seu
                         e-mail no campo abaixo.</p>
                     <div class="input-group-append">
                         <input type="email" class="form-control" placeholder="exemplo@email.com">
@@ -77,7 +77,7 @@
                 <h4 class="titulo-footer">Entre em Contato:</h4>
                 <div class="mb-2 texto-footer">
                     <?php if (!empty(esc_attr(get_option('section_footer_about')))) : ?>
-                        <p><?= esc_attr(get_option('section_footer_contact')) ?></p>
+                        <p><?php echo esc_attr(get_option('section_footer_contact')) ?></p>
                     <?php endif; ?>
                 </div>
                 <!-- Contact -->
@@ -88,31 +88,31 @@
             <ul class="midias-sociais-inferior">
                 <?php if (!empty(esc_attr(get_option('section_social_medias_store')))) : ?>
                     <li class="list-inline-item">
-                        <a href="<?= esc_attr(get_option('section_social_medias_store')) ?>" class="fa-inferior fa fa-shopping-cart" target="__blank"></a>
+                        <a href="<?php echo esc_attr(get_option('section_social_medias_store')) ?>" class="fa-inferior fa fa-shopping-cart" target="__blank"></a>
                     </li>
                 <?php endif; ?>
 
                 <?php if (!empty(esc_attr(get_option('section_social_medias_facebook')))) : ?>
                     <li class="list-inline-item">
-                        <a href="<?= esc_attr(get_option('section_social_medias_facebook')) ?>" class="fa-inferior fa fa-facebook-f" target="__blank"></a>
+                        <a href="<?php echo esc_attr(get_option('section_social_medias_facebook')) ?>" class="fa-inferior fa fa-facebook-f" target="__blank"></a>
                     </li>
                 <?php endif; ?>
 
                 <?php if (!empty(esc_attr(get_option('section_social_medias_twitter')))) : ?>
                     <li class="list-inline-item">
-                        <a href="<?= esc_attr(get_option('section_social_medias_twitter')) ?>" class="fa-inferior fa fa-twitter" target="__blank"></a>
+                        <a href="<?php echo esc_attr(get_option('section_social_medias_twitter')) ?>" class="fa-inferior fa fa-twitter" target="__blank"></a>
                     </li>
                 <?php endif; ?>
 
                 <?php if (!empty(esc_attr(get_option('section_social_medias_instagram')))) : ?>
                     <li class="list-inline-item">
-                        <a href="<?= esc_attr(get_option('section_social_medias_instagram')) ?>" class="fa-inferior fa fa-instagram" target="__blank"></a>
+                        <a href="<?php echo esc_attr(get_option('section_social_medias_instagram')) ?>" class="fa-inferior fa fa-instagram" target="__blank"></a>
                     </li>
                 <?php endif; ?>
 
                 <?php if (!empty(esc_attr(get_option('section_social_medias_youtube')))) : ?>
                     <li class="list-inline-item">
-                        <a href="<?= esc_attr(get_option('section_social_medias_youtube')) ?>" class="fa-inferior fa fa-youtube-play" target="__blank"></a>
+                        <a href="<?php echo esc_attr(get_option('section_social_medias_youtube')) ?>" class="fa-inferior fa fa-youtube-play" target="__blank"></a>
                     </li>
                 <?php endif; ?>
             </ul>
