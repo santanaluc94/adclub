@@ -12,22 +12,25 @@ $third_color = esc_attr(get_option('section_club_third'));
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/css/reset.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/css/header.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/reset.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/header.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/style.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/css/index.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/css/single.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/css/atletas.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/css/campeonatos.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/css/partidas.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/index.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/single.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/atletas.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/campeonatos.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/partidas.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/bootstrap-4.5.0/dist/css/bootstrap.min.css' ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/footer.css' ?>" >
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- JS -->
+    <script src="<?php echo esc_url(get_template_directory_uri()) . '/public/js/jquery-3.5.1.min.js' ?>"></script>
+    <script src="<?php echo esc_url(get_template_directory_uri()) . '/public/css/bootstrap-4.5.0/dist/js/bootstrap.min.js' ?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()); ?>/css/footer.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
 
     <style type="text/css">
         :root {
@@ -57,7 +60,7 @@ $third_color = esc_attr(get_option('section_club_third'));
                     <?php the_custom_logo() ?>
                 <?php else : ?>
                     <a class="logo" href="<?php echo site_url() ?>">
-                        <img class="logo-menu" src="<?php echo esc_url(get_template_directory_uri()) . '/img/adc-logo.png' ?>" />
+                        <img class="logo-menu" src="<?php echo esc_url(get_template_directory_uri()) . '/public/img/adc-logo.png' ?>" />
                     </a>
                 <?php endif; ?>
 
