@@ -29,8 +29,6 @@ $third_color = esc_attr(get_option('section_club_third'));
 
     <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()); ?>/css/footer.css">
 
-
-
     <style type="text/css">
         :root {
             --main-color: <?php echo $first_color ?>;
@@ -39,7 +37,15 @@ $third_color = esc_attr(get_option('section_club_third'));
         }
     </style>
 
-    <title><?php wp_title('|', true, 'right'); ?></title>
+    <title>
+        <?php if (wp_title()) : ?>
+        <?php wp_title() ?>
+        <?php elseif (!empty(esc_attr(get_option('section_club_name')))) : ?>
+            <?php echo esc_attr(get_option('section_club_name')) ?>
+        <?php else : ?>
+            <?php echo get_bloginfo('name') ?>
+        <?php endif; ?>
+    </title>
 </head>
 
 <body>

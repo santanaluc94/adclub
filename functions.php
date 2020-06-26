@@ -1,10 +1,5 @@
 <?php
 
-include_once __DIR__ . '/plugins/my_club.php';
-include_once __DIR__ . '/plugins/sponsors/sponsors.php';
-include_once __DIR__ . '/plugins/players/players.php';
-include_once __DIR__ . '/plugins/games/games.php';
-
 add_action('after_setup_theme', 'my_theme_setup');
 
 function my_theme_setup()
@@ -21,6 +16,18 @@ add_theme_support('custom-logo');
  * Enable thumbnail
  */
 add_theme_support('post-thumbnails');
+
+add_action('after_setup_theme', 'wpse_theme_setup');
+
+/**
+ * Enable title tag
+ *
+ * @return void
+ */
+function wpse_theme_setup(): void
+{
+    add_theme_support('title-tag');
+}
 
 /**
  * Call function to change logo class
