@@ -86,7 +86,7 @@ $campeonatos = get_terms('championships');
                             <?php endwhile; ?>
                         </div>
                     <?php else : ?>
-                        <?php echo __('There is no games registered.') ?>
+                        <?php echo __('There is no games registered.', 'adclube') ?>
                     <?php endif; ?>
                     <?php wp_reset_query(); ?>
                 <?php endforeach; ?>

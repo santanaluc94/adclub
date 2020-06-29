@@ -13,15 +13,15 @@
 
                 <?php if ($qtd == 1) : ?>
                     <h1>
-                        <span class="titulo-pagina"><?php echo __('Sponsor') ?></span>
+                        <span class="titulo-pagina"><?php echo __('Sponsor', 'adclube') ?></span>
                     </h1>
                 <?php elseif ($qtd >= 2) : ?>
                     <h1>
-                        <span class="titulo-pagina"><?php echo __('Sponsors') ?></span>
+                        <span class="titulo-pagina"><?php echo __('Sponsors', 'adclube') ?></span>
                     </h1>
                 <?php else : ?>
                     <h1>
-                        <span class="titulo-pagina"><?php echo __('No Sponsor') ?></span>
+                        <span class="titulo-pagina"><?php echo __('No Sponsor', 'adclube') ?></span>
                     </h1>
                 <?php endif; ?>
             </div>
@@ -36,7 +36,7 @@
                 <?php else : ?>
                     <div class="col-md-12 row">
                         <article class="texto">
-                            <p class="texto-pagina"><?php echo __('We do not have sponsors at the moment.') ?></p>
+                            <p class="texto-pagina"><?php echo __('We do not have sponsors at the moment.', 'adclube') ?></p>
                         </article>
                     </div>
                 <?php endif; ?>

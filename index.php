@@ -78,7 +78,7 @@ $post_games = [
         <article class="sub-texto">
             <div class="row titulo-site">
                 <h1>
-                    <span class="titulo-pagina"><?php echo __('Games') ?></span>
+                    <span class="titulo-pagina"><?php echo __('Games', 'adclube') ?></span>
                 </h1>
             </div>
             <div class="col-md-12">
@@ -137,7 +137,7 @@ $post_games = [
                     </div>
                 <?php else : ?>
                     <article class="texto">
-                        <p><?php echo __('The club does not have games.'); ?></p>
+                        <p><?php echo __('The club does not have games.', 'adclube'); ?></p>
                     </article>
                     <?php wp_reset_query(); ?>
                 <?php endif; ?>

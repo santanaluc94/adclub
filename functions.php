@@ -56,7 +56,7 @@ function change_logo_class($html)
 function insert_categories()
 {
     wp_insert_term(
-        __('Notices'),
+        __('Notices', 'adclube'),
         'category',
         [
             'slug' => 'notices'
@@ -64,7 +64,7 @@ function insert_categories()
     );
 
     wp_insert_term(
-        __('Highlights'),
+        __('Highlights', 'adclube'),
         'category',
         [
             'slug' => 'highlights'
@@ -91,26 +91,6 @@ function format_date(string $date)
 }
 
 /**
- * Club name
- *
- * @return string
- */
-function meu_clube()
-{
-    return "GRU";
-}
-
-/**
- * Club stadium
- *
- * @return string
- */
-function meu_estadio()
-{
-    return "Antônio Soares";
-}
-
-/**
  * Club stadium
  *
  * @return string
@@ -130,36 +110,36 @@ function create_static_pages()
 {
     $html_sobre = '
         <article class="sub-texto">
-            <p class="texto-pagina"><?php echo __("Conteúdo sobre o Clube.") ?></p>
+            <p class="texto-pagina"><?php echo __("Content about the club.", "adclube") ?></p>
         </article>';
 
     $html_extras = '
         <article class="sub-texto">
             <p class="texto-pagina">
-                <?php echo __("Texto extra sobre o clube.") ?>
+                <?php echo __("Text about the club.", "adclube") ?>
             </p>
         </article>
         <article class="sub-texto">
             <div class="row titulo-site">
                 <h1>
-                    <span class="titulo-pagina"><?php echo __("Torcida do Clube") ?></span>
+                    <span class="titulo-pagina"><?php echo __("Club Crowd", "adclube") ?></span>
                 </h1>
             </div>
             <p class="texto-pagina">
-                <?php echo __("Texto sobre a torcida do clube.") ?>
+                <?php echo __("Text about club crowd.", "adclube") ?>
             </p>
         </article>
         <article class="sub-texto">
             <div class="row titulo-site">
                 <h1>
-                    <span class="titulo-pagina"><?php echo __("Hino do Clube") ?></span>
+                    <span class="titulo-pagina"><?php echo __("Club Anthem", "adclube") ?></span>
                 </h1>
             </div>
             <p class="hino">
-                <?php echo __("Primeira linha do hino do Clube") ?><br />
-                <?php echo __("Segunda linha do hino do Clube") ?><br />
-                <?php echo __("Terceira linha do hino do Clube") ?><br />
-                <?php echo __("Quarta linha do hino do Clube") ?><br />
+                <?php echo __("Firth line of the club anthem", "adclube") ?><br />
+                <?php echo __("Second line of the club anthem", "adclube") ?><br />
+                <?php echo __("Third line of the club anthem", "adclube") ?><br />
+                <?php echo __("Fourth line of the club anthem", "adclube") ?><br />
             </p>
         </article>';
 

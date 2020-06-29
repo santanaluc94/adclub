@@ -35,7 +35,7 @@ $taxonomy = get_taxonomy('championships');
                 <?php endif; ?>
             <?php endforeach; ?>
         <?php else : ?>
-            <?php echo __('There is no championships registered.') ?>
+            <?php echo __('There is no championships registered.', 'adclube') ?>
         <?php endif; ?>
         <?php wp_reset_query(); ?>
     </section>

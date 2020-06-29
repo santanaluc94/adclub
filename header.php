@@ -23,7 +23,6 @@ $third_color = esc_attr(get_option('section_club_third'));
     <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/bootstrap-4.5.0/dist/css/bootstrap.min.css' ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/footer.css' ?>" >
 
-
     <!-- JS -->
     <script src="<?php echo esc_url(get_template_directory_uri()) . '/public/js/jquery-3.5.1.min.js' ?>"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()) . '/public/css/bootstrap-4.5.0/dist/js/bootstrap.min.js' ?>"></script>
