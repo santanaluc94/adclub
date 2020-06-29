@@ -46,6 +46,7 @@
 <?php endif; ?>
 
 <footer>
+    <?php wp_footer() ?>
     <div class="container">
         <div class="row footer-superior">
             <div class=" col-sm-4 col-md col-sm-4 col-12 col">

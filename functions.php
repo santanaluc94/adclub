@@ -176,3 +176,56 @@ function create_static_pages()
  * Call function to create static page
  */
 add_action('admin_init', 'create_static_pages');
+
+/**
+ * Import all css and js files in header
+ *
+ * @return void
+ */
+function add_header_links(): void
+{
+?>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/reset.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/header.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/style.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/index.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/bootstrap-4.5.0/css/bootstrap.min.css' ?>" />
+
+    <!-- JS -->
+    <script src="<?php echo esc_url(get_template_directory_uri()) . '/public/js/jquery-3.5.1.min.js' ?>"></script>
+    <script src="<?php echo esc_url(get_template_directory_uri()) . '/public/bootstrap-4.5.0/js/bootstrap.min.js' ?>"></script>
+<?php
+}
+
+/**
+ * Call function to import css and js in header
+ */
+add_action('wp_head', 'add_header_links');
+
+
+/**
+ * Import all css and js files in footer
+ *
+ * @return void
+ */
+function add_footer_links(): void
+{
+?>
+    <script src="<?php echo esc_url(get_template_directory_uri()) . '/public/js/popper.min.js' ?>"></script>
+
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/single.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/atletas.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/campeonatos.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/partidas.css' ?>">
+
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()) . '/public/css/footer.css' ?>">
+<?php
+}
+
+/**
+ * Call function to import css and js in header
+ */
+add_action('wp_footer', 'add_footer_links');
+
+add_theme_support('automatic-feed-links');
