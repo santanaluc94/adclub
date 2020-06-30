@@ -229,3 +229,22 @@ function add_footer_links(): void
 add_action('wp_footer', 'add_footer_links');
 
 add_theme_support('automatic-feed-links');
+
+/**
+ * Add .js script if "Enable threaded comments" is activated in Admin
+ * Codex: {@link https://developer.wordpress.org/reference/functions/wp_enqueue_script/}
+ *
+ * @return void
+ */
+function function_enqueue_comments_reply(): void
+{
+    if (is_singular() && comments_open() && (get_option('thread_comments') == 1)) {
+        // Load comment-reply.js (into footer)
+        wp_enqueue_script('comment-reply', '/wp-includes/js/comment-reply.min.js', array(), false, true);
+    }
+}
+
+/**
+ * Call function to add comments repply
+ */
+add_action('wp_enqueue_scripts', 'function_enqueue_comments_reply');
